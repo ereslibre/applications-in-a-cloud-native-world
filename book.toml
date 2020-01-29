@@ -1,0 +1,12 @@
+[book]
+authors = ["Rafael Fernández López"]
+language = "en"
+multilingual = false
+src = "src"
+title = "Applications in a cloud native world"
+
+[preprocessor.graphviz]
+command = "mdbook-graphviz"
+
+[preprocessor.plantuml]
+plantuml-cmd = "plantuml"

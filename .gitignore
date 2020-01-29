@@ -1,0 +1,3 @@
+book
+*.generated.svg
+src/mdbook-plantuml-img/
