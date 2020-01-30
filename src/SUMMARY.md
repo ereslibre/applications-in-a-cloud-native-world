@@ -2,8 +2,8 @@
 
 - [Welcome](./welcome.md)
 - [Basics](./basics.md)
-- [Models](./models.md)
 - [Monolith](./monolith.md)
+- [Deployment](./deployment.md)
 - [Microservice](./microservice.md)
 - [Service communication](./service_communication.md)
 - [Splitting the monolith](./splitting_the_monolith.md)
