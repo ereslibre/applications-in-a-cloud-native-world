@@ -63,7 +63,7 @@ no matter what kind of UX (e.g. terminal, graphical...)
 and as such, this creates friction on both systems. We can ask ourselves
 some questions at this point:
 
-* How can both evolve and still make sure that they complying with the
+* How can both evolve and still make sure that they are complying with the
   contract they signed?
 
 * What happens to one service if the other is not responsive, and the
