@@ -24,7 +24,9 @@ runs our server.
 digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
+    Kernel[shape=box];
     Application[shape=box];
+    Application -> Kernel;
   }
 }
 ```
@@ -64,9 +66,12 @@ orders of metal deployments.
 digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
+    Kernel_p[shape=box,label=Kernel];
     subgraph cluster_v {
         label = "Virtual Machine";
+        Kernel[shape=box];
         Application[shape=box];
+        Application -> Kernel;
     }
   }
 }
@@ -79,11 +84,15 @@ digraph D {
 digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
+    Kernel_p[shape=box,label=Kernel];
     subgraph cluster_v {
         label = "Virtual Machine";
+        Kernel_v[shape=box,label=Kernel];
         subgraph cluster_v2 {
             label = "Virtual Machine";
+            Kernel[shape=box];
             Application[shape=box];
+            Application -> Kernel;
         }
     }
   }
@@ -143,10 +152,12 @@ reduced friction surface.
 digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
+    Kernel[shape=box];
     subgraph cluster_v {
         label = "Container";
         Application[shape=box];
     }
+    Application -> Kernel;
   }
 }
 ```
@@ -158,12 +169,15 @@ digraph D {
 digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
+    Kernel_p[shape=box,label=Kernel];
     subgraph cluster_v {
         label = "Virtual Machine";
+        Kernel[shape=box];
         subgraph cluster_v2 {
             label = "Container";
             Application[shape=box];
         }
+        Application -> Kernel;
     }
   }
 }
@@ -176,9 +190,6 @@ digraph D {
 ## Techniques
 
 ### Manual
-
-If you are old enough, chances are that you have seen or done this
-yourself.
 
 A deployment could mean "upload through FTP" the new version of the
 website. It could also mean, "perform a git pull" on the production
@@ -205,4 +216,28 @@ Needless to say this was tricky, for several reasons:
 * How fast can we react upon these events, without committing more
   mistakes along the way?
 
+Tools like [Capistrano](https://capistranorb.com/) have emerged in
+order to perform a set of commands on different machines.
+
 ### Automated
+
+The automated deployment strategy leverages the so called Continuous
+Integration and Continuous Delivery methodologies.
+
+This strategy might involve a tool like Jenkins to run all the
+required tests to ensure that a new version of the application passes
+all required tests, and then, deploy it to the given infrastructure in
+a semi-manual (requiring manual confirmation) or completely automatic fashion.
+
+## Targets
+
+A deployment target can be understood as a machine, or a set of
+machines where the application is going to be deployed.
+
+Ultimately, this machine needs to have some component listening for
+incoming requests. Generally, a web server is exposed, that will in
+turn talk to our application internally, e.g. using a UNIX socket.
+
+However, it's also common to see *Application servers* (like Zend) or
+even *Servlet containers* (like Tomcat), that allow you to deploy your
+application on a fully fledged web server.
