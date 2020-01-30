@@ -18,6 +18,19 @@ performing the deployment on this environment means running a number
 of steps in order for the operating system to spawn a new process that
 runs our server.
 
+<center>
+
+```dot process
+digraph D {
+  subgraph cluster_p {
+    label = "Physical Machine";
+    Application[shape=box];
+  }
+}
+```
+
+</center>
+
 ### Virtualization
 
 A virtualized environment abstracts the concept of a physical machine,
@@ -42,6 +55,44 @@ desired version of the application.
 Since booting virtual machines is to all effects booting a machine
 with a fully fledged operating system the startup time is still in the
 orders of metal deployments.
+
+<table>
+<tr>
+<td>
+
+```dot process
+digraph D {
+  subgraph cluster_p {
+    label = "Physical Machine";
+    subgraph cluster_v {
+        label = "Virtual Machine";
+        Application[shape=box];
+    }
+  }
+}
+```
+
+</td>
+<td>
+
+```dot process
+digraph D {
+  subgraph cluster_p {
+    label = "Physical Machine";
+    subgraph cluster_v {
+        label = "...";
+        subgraph cluster_v2 {
+            label = "Virtual Machine";
+            Application[shape=box];
+        }
+    }
+  }
+}
+```
+
+</td>
+</tr>
+</table>
 
 ### Containerization
 
@@ -83,6 +134,44 @@ to be set up, else they won't work as expected.
 In any case, containerization and specially the UX dotCloud introduced
 helped to make reproducible builds and environments easier with a greatly
 reduced friction surface.
+
+<table>
+<tr>
+<td>
+
+```dot process
+digraph D {
+  subgraph cluster_p {
+    label = "Physical Machine";
+    subgraph cluster_v {
+        label = "Container";
+        Application[shape=box];
+    }
+  }
+}
+```
+
+</td>
+<td>
+
+```dot process
+digraph D {
+  subgraph cluster_p {
+    label = "Physical Machine";
+    subgraph cluster_v {
+        label = "Virtual Machine";
+        subgraph cluster_v2 {
+            label = "Container";
+            Application[shape=box];
+        }
+    }
+  }
+}
+```
+
+</td>
+</tr>
+</table>
 
 ## Techniques
 
