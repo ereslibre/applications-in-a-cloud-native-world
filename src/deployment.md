@@ -40,7 +40,7 @@ According to the
 [Wikipedia](https://en.wikipedia.org/wiki/Virtualization),
 *virtualization* is described as:
 
-> *virtualization* refers to the act of creating a virtual (rather than
+> *virtualization*: refers to the act of creating a virtual (rather than
 > actual) version of something, including virtual computer hardware
 > platforms, storage devices, and computer network resources.
 
@@ -80,7 +80,7 @@ digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
     subgraph cluster_v {
-        label = "...";
+        label = "Virtual Machine";
         subgraph cluster_v2 {
             label = "Virtual Machine";
             Application[shape=box];
