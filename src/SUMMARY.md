@@ -10,6 +10,6 @@
 - [Continuous integration](./continous-integration.md)
 - [Continuous delivery](./continous-delivery.md)
 - [Kubernetes](./kubernetes.md)
-- [Visibility](./visibility.md)
+- [Observability](./observability.md)
 - [Patterns](./patterns.md)
 - [Security](./security.md)

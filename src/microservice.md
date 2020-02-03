@@ -164,6 +164,9 @@ Let's go through some:
     instrumentation. The concept of *spans* allows us to understand
     what happened across a distributed set of services that spawned
     a tree of requests from the initial request.
+* Scalable
+  * Cloud Native applications can be scaled in and scaled out as
+    required, based on current and expected demand.
 * Ephemeral
   * A Cloud Native application instance has present that is ephemeral,
     and so, it can be instantiated at any time, or destroyed at any
