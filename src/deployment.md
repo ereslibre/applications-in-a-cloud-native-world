@@ -25,7 +25,7 @@ digraph D {
   subgraph cluster_p {
     label = "Physical Machine";
     Kernel[shape=box];
-    Application[shape=box];
+    Application[shape=record,label="{ Dependencies | Application }"];
     Application -> Kernel;
   }
 }
@@ -70,7 +70,7 @@ digraph D {
     subgraph cluster_v {
         label = "Virtual Machine";
         Kernel[shape=box];
-        Application[shape=box];
+        Application[shape=record,label="{ Dependencies | Application }"];
         Application -> Kernel;
     }
   }
@@ -91,7 +91,7 @@ digraph D {
         subgraph cluster_v2 {
             label = "Virtual Machine";
             Kernel[shape=box];
-            Application[shape=box];
+            Application[shape=record,label="{ Dependencies | Application }"];
             Application -> Kernel;
         }
     }
@@ -155,7 +155,7 @@ digraph D {
     Kernel[shape=box];
     subgraph cluster_v {
         label = "Container";
-        Application[shape=box];
+        Application[shape=record,label="{ Dependencies | Application }"];
     }
     Application -> Kernel;
   }
@@ -175,7 +175,7 @@ digraph D {
         Kernel[shape=box];
         subgraph cluster_v2 {
             label = "Container";
-            Application[shape=box];
+            Application[shape=record,label="{ Dependencies | Application }"];
         }
         Application -> Kernel;
     }

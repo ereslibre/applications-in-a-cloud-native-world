@@ -219,10 +219,10 @@ describes, are organized around business capabilities:
 </table>
 </center>
 
-Given a small set of microservices, everyone on the team is closer to
-the whole functionality a service provides, and become a cross
-functional team; because they are able to understand the whole service
-from end to end.
+Given a small set of microservices, everyone on the team managing
+those microservices is closer to the whole functionality a service
+provides, and become a cross functional team; because they are able to
+understand the whole service from end to end.
 
 And ultimately, how both look, when put side by side:
 
