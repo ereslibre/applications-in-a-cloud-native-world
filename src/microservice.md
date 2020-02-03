@@ -154,7 +154,102 @@ Let's go through some:
   * Cloud Native applications expose liveness check endpoints, so an
     external orchestrator is able to know when to route requests to a
     recently started instance, only when it's ready to process them.
+* Logging
+  * Cloud Native applications usually log into `stdout` and `stderr`
+    streams. Usually, all logs from all applications will be
+    aggregated into a unified logging layer. This allows us to improve
+    the observability upon a set of microservices at any given time.
+* Tracing
+  * Cloud Native applications might include tracing
+    instrumentation. The concept of *spans* allows us to understand
+    what happened across a distributed set of services that spawned
+    a tree of requests from the initial request.
 * Ephemeral
   * A Cloud Native application instance has present that is ephemeral,
     and so, it can be instantiated at any time, or destroyed at any
     time by an external orchestrator.
+
+## Scalability
+
+### Vertical scaling
+
+Vertical scaling doesn't have any meaningul differences from the
+description provided in the [Monolith section](monolith.md#vertical-scaling).
+
+### Horizontal scaling
+
+Due to the traits we have discussed in the [Cloud Native
+section](#cloud-native), horizontally scaling microservices should be
+an easy operation to perform, potentially automated by an external
+orchestrator, such as Kubernetes.
+
+## Boundaries
+
+Boundaries in microservices, as [Martin
+Fowler](https://martinfowler.com/articles/microservices.html)
+describes, are organized around business capabilities:
+
+> The microservice approach to division is different, splitting up
+> into services organized around business capability.
+>
+> Such services take a broad-stack implementation of software for that
+> business area, including user-interface, persistant storage, and any
+> external collaborations. Consequently the teams are
+> cross-functional, including the full range of skills required for
+> the development: user-experience, database, and project management.
+
+<center>
+<table>
+<tr>
+<td>
+
+![Microservices](https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png)
+
+</td>
+</tr>
+<tr>
+<td>
+<center>
+
+[Image credit](https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png)
+
+</center>
+</td>
+</tr>
+</table>
+</center>
+
+Given a small set of microservices, everyone on the team is closer to
+the whole functionality a service provides, and become a cross
+functional team; because they are able to understand the whole service
+from end to end.
+
+And ultimately, how both look, when put side by side:
+
+<center>
+<table>
+<tr>
+<td>
+
+![Decentralized data](https://martinfowler.com/articles/microservices/images/decentralised-data.png)
+
+</td>
+</tr>
+<tr>
+<td>
+<center>
+
+[Image credit](https://martinfowler.com/articles/microservices/images/decentralised-data.png)
+
+</center>
+</td>
+</tr>
+</table>
+</center>
+
+On the previous diagram is clear how in general terms, a monolith uses
+a single database, whereas a set of microservices use their own
+storage, reponsibility of different teams, and how a microservice can
+at any moment in time be formed by one or more instances, depending on
+the load, and on the decisions taken by the administrators and/or the
+orchestrator.
