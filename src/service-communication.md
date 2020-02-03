@@ -134,7 +134,7 @@ during this book.
 ### Inbound
 
 Inbound traffic is the traffic that comes from outside to the cluster,
-towards a service running inside it. This is typically and end-user,
+towards a service running inside it. This is typically an end-user,
 or an external system accessing our external API's.
 
 ### Internal
