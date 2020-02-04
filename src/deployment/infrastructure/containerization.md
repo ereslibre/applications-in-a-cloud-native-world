@@ -39,9 +39,7 @@ In any case, containerization and specially the UX dotCloud introduced
 helped to make reproducible builds and environments easier with a greatly
 reduced friction surface.
 
-<table>
-<tr>
-<td>
+<center>
 
 ```dot process
 digraph D {
@@ -57,8 +55,11 @@ digraph D {
 }
 ```
 
-</td>
-<td>
+</center>
+
+Our containers can also run on top of virtualized machines:
+
+<center>
 
 ```dot process
 digraph D {
@@ -78,6 +79,4 @@ digraph D {
 }
 ```
 
-</td>
-</tr>
-</table>
+</center>

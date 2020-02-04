@@ -100,7 +100,7 @@ desired replicas.
 ## The Kubelet
 
 The *Kubelet* is the Kubernetes node agent. It runs on every machine
-that is part of our cluster, and is another client.
+that is part of our cluster, and is another *API Server* client.
 
 Let's draw it.
 
@@ -156,7 +156,8 @@ with the **desired** status (what pods should be running right now on
 this machine?).
 
 It will use a Container Runtime (such as Docker, cri-o or containerd),
-in order to spawn *Pods*.
+in order to manage the containers defined in *Pods* (creating, or
+deleting them).
 
 Now, if we created a *Replica Set*, that resulted in *Pods* being
 created by the *ReplicaSetController*, how do these *Pods* get
@@ -196,3 +197,5 @@ digraph D {
   Scheduler -> APIServer;
 }
 ```
+
+And so, again, the *Scheduler* is just another *API Server* client.

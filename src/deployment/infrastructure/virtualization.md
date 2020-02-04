@@ -23,9 +23,7 @@ Since booting virtual machines is to all effects booting a machine
 with a fully fledged operating system the startup time is still in the
 orders of metal deployments.
 
-<table>
-<tr>
-<td>
+<center>
 
 ```dot process
 digraph D {
@@ -42,8 +40,12 @@ digraph D {
 }
 ```
 
-</td>
-<td>
+</center>
+
+Or, virtualized infrastructure can also virtualize other machines,
+where we can run our application onto. This is referred as *nested virtualization*:
+
+<center>
 
 ```dot process
 digraph D {
@@ -64,6 +66,4 @@ digraph D {
 }
 ```
 
-</td>
-</tr>
-</table>
+</center>
