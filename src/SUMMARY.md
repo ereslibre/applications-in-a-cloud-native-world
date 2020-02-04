@@ -24,7 +24,6 @@
 - [Service communication](./service-communication.md)
     - [Communication](./service-communication/communication.md)
         - [Protocols](./service-communication/communication/protocols.md)
-        - [API Gateways](./service-communication/communication/api-gateways.md)
     - [Traffic](./service-communication/traffic.md)
 - [Kubernetes](./kubernetes.md)
     - [Concepts](./kubernetes/concepts.md)
