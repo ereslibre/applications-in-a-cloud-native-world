@@ -59,13 +59,14 @@ Let's go through some:
     orchestrator is able to take decisions based on load, like scaling
     the service in an automated way.
 * Health checks
-  * Cloud Native applications expose health check endpoints, so an
-    external orchestrator is able to restart the service if it's not
-    running as expected.
-* Liveness checks
-  * Cloud Native applications expose liveness check endpoints, so an
-    external orchestrator is able to know when to route requests to a
-    recently started instance, only when it's ready to process them.
+  * Liveness probes
+    * Cloud Native applications expose health check endpoints, so an
+      external orchestrator is able to restart the service if it's not
+      running as expected.
+  * Readiness or startup probes
+    * Cloud Native applications expose readiness check endpoints, so an
+      external orchestrator is able to know when to route requests to a
+      recently started instance, only when it's ready to process them.
 * Logging
   * Cloud Native applications usually log into `stdout` and `stderr`
     streams. Usually, all logs from all applications will be
