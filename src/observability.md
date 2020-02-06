@@ -41,3 +41,6 @@ practices:
 * *Metrics*: a microservice can expose metrics, so an external
   orchestrator is able to know if it needs to scale in or out a given
   microservice based on the demand.
+
+Also, we have to monitor both the infrastructure (the Kubernetes
+cluster healthiness), as well as our applications running on top of it.

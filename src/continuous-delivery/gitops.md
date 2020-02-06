@@ -1,9 +1,9 @@
-# Gitops
+# GitOps
 
 As we have seen, our *Continous Integration* pipelines are not the
 best place to perform a rollout of our application.
 
-*Gitops* is a term [coined by
+*GitOps* is a term [coined by
 WeaveWorks](https://www.weave.works/technologies/gitops/), so let's
 see what is their definition:
 
@@ -57,7 +57,7 @@ And an obligatory diagram:
 <tr>
 <td>
 
-![Gitops](https://images.contentstack.io/v3/assets/blt300387d93dabf50e/blt15812c9fe056ba3b/5ce4448f32fd88a3767ee9a3/download)
+![GitOps](https://images.contentstack.io/v3/assets/blt300387d93dabf50e/blt15812c9fe056ba3b/5ce4448f32fd88a3767ee9a3/download)
 
 </td>
 </tr>
@@ -65,13 +65,38 @@ And an obligatory diagram:
 <td>
 <center>
 
-[Image credit](https://images.contentstack.io/v3/assets/blt300387d93dabf50e/blt15812c9fe056ba3b/5ce4448f32fd88a3767ee9a3/download)
+[Image credit](https://www.weave.works/technologies/gitops/)
 
 </center>
 </td>
 </tr>
 </table>
 </center>
+
+And how a GitOps pipeline would look like:
+
+<center>
+<table>
+<tr>
+<td>
+
+![GitOps Pipeline](https://lh3.googleusercontent.com/37dEz1igq1oGbm80e1HPSfKvH4macg4r0Ft21wH56tCJ7bClqgBm_kpD6NtNWlRs3V-gShPJbbIeeg5Ml07s8mZJ-xiXDwLWCpOU4AufXyPXfyCt-Hj98za68p41Q-jc0Yqk9usd)
+
+</td>
+</tr>
+<tr>
+<td>
+<center>
+
+[Image credit](https://www.weave.works/technologies/gitops/)
+
+</center>
+</td>
+</tr>
+</table>
+</center>
+
+
 
 It's very clear now that we have now a set of explicit components
 **driving** the rollout phase. It is the responsibility of this

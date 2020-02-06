@@ -1,3 +1,1 @@
 # Custom Resource Definitions
-
-TODO

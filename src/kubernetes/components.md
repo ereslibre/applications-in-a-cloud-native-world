@@ -111,7 +111,10 @@ digraph D {
   APIServer[shape=component,label="API Server"];
   KVStore[shape=component,label="etcd"];
   ControllerManager[shape=component,label="Controller Manager"];
-  Kubelet[shape=component,label="Kubelet"];
+  subgraph cluster_node {
+    label="Node";
+    Kubelet[shape=component];
+  }
   User -> APIServer;
   APIServer -> KVStore;
   ControllerManager -> APIServer;
@@ -166,8 +169,7 @@ then **reconcile** and create the real workloads?
 
 ## The Scheduler
 
-The *Scheduler* is the last Kubernetes' core component to describe. As
-you can imagine, its job is to *schedule* workloads. Let's get more
+As you can imagine, its job is to *schedule* workloads. Let's get more
 into detail: the *Scheduler* is watching the *API Server* for *Pods*
 that are **unscheduled**, and will assign a node for each *Pod*, based
 on specific decision algorithms, also taking into account specific
@@ -199,3 +201,70 @@ digraph D {
 ```
 
 And so, again, the *Scheduler* is just another *API Server* client.
+
+## The Proxy
+
+The Kubernetes Proxy (or *kube-proxy*) is yet another Kubernetes
+component running on all nodes of the cluster. Its main duty is to
+install networking rules on the host, so pods can reach internal
+service IP addresses.
+
+Let's draw it.
+
+<center>
+
+```dot process
+digraph D {
+  APIServer[shape=component,label="API Server"];
+  KVStore[shape=component,label="etcd"];
+  ControllerManager[shape=component,label="Controller Manager"];
+  Scheduler[shape=component];
+  subgraph cluster_node {
+    label="Node";
+    Kubelet[shape=component];
+    KubeProxy[shape=component,label="Kube Proxy"];
+  }
+  User -> APIServer;
+  APIServer -> KVStore;
+  ControllerManager -> APIServer;
+  Kubelet -> APIServer;
+  Scheduler -> APIServer;
+  KubeProxy -> APIServer;
+}
+```
+
+</center>
+
+The Kubernetes Proxy usually runs in a containerized fashion, but that
+is not relevant for the purpose of this diagrams. Let's draw it with
+two nodes again:
+
+```dot process
+digraph D {
+  APIServer[shape=component,label="API Server"];
+  KVStore[shape=component,label="etcd"];
+  ControllerManager[shape=component,label="Controller Manager"];
+  Scheduler[shape=component];
+  subgraph cluster_node1 {
+    label="Node 1";
+    Kubelet1[shape=component,label="Kubelet"];
+    KubeProxy1[shape=component,label="Kube Proxy"];
+  }
+  subgraph cluster_node2 {
+    label="Node 2";
+    Kubelet2[shape=component,label="Kubelet"];
+    KubeProxy2[shape=component,label="Kube Proxy"];
+  }
+  User -> APIServer;
+  APIServer -> KVStore;
+  ControllerManager -> APIServer;
+  Kubelet1 -> APIServer;
+  Kubelet2 -> APIServer;
+  Scheduler -> APIServer;
+  KubeProxy1 -> APIServer;
+  KubeProxy2 -> APIServer;
+}
+```
+
+Some CNI providers have enabled the ability to not depend on the
+Kubernetes Proxy, such as [cilium](https://cilium.io).
