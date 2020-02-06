@@ -8,5 +8,5 @@ title = "Applications in a cloud native world"
 [preprocessor.graphviz]
 command = "mdbook-graphviz"
 
-#[preprocessor.plantuml]
-#plantuml-cmd = "plantuml"
+[preprocessor.plantuml]
+plantuml-cmd = "plantuml"
