@@ -1,7 +1,7 @@
 # Deployment
 
 Deployment strategies for microservices can be similar to deploying
-monoliths, [described in a previous section](/monolith/deployment.md).
+monoliths, [described in a previous section](./../monolith/deployment.md).
 
 However, when managing a constellation of microservices things get
 trickier, and this is where an orchestrator comes handy.
