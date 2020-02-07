@@ -20,7 +20,7 @@ we can point some traits of Service Oriented Architectures:
 * **Flexibility** over optimization
 * **Evolutionary refinement** over pursuit of initial perfection
 
-This is a new approach as opposed to internally splitting our
+This is a different approach as opposed to internally splitting our
 application in modules to define boundaries. With a *SOA*, we will
 have a set of services that can talk to each other over the network,
 and so their API will be some form of HTTP or RPC API.
