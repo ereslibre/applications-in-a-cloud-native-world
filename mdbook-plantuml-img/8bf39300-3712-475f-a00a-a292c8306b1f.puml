@@ -1,0 +1,12 @@
+@startuml
+(*) --> Start pipeline
+--> Build container image(s)
+--> Run tests
+if "Tests succeeded" then
+  -->[true] Push container image(s) to registry
+  --> End pipeline
+else
+  -->[false] End pipeline
+endif
+--> (*)
+@enduml

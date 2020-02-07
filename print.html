@@ -1,0 +1,1609 @@
+<!DOCTYPE HTML>
+<html lang="en" class="sidebar-visible no-js light">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Applications in a cloud native world</title>
+        
+        <meta name="robots" content="noindex" />
+        
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff" />
+
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro:500" rel="stylesheet" type="text/css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+        
+
+        
+    </head>
+    <body>
+        <!-- Provide site root to javascript -->
+        <script type="text/javascript">
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "light" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script type="text/javascript">
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script type="text/javascript">
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('no-js')
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add('js');
+        </script>
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script type="text/javascript">
+            var html = document.querySelector('html');
+            var sidebar = 'hidden';
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            }
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div id="sidebar-scrollbox" class="sidebar-scrollbox">
+                <ol class="chapter"><li class="expanded "><a href="welcome.html"><strong aria-hidden="true">1.</strong> Welcome</a></li><li class="expanded "><a href="basics.html"><strong aria-hidden="true">2.</strong> Basics</a></li><li class="expanded "><a href="monolith.html"><strong aria-hidden="true">3.</strong> Monolith</a></li><li><ol class="section"><li class="expanded "><a href="monolith/traits.html"><strong aria-hidden="true">3.1.</strong> Traits</a></li><li class="expanded "><a href="monolith/scalability.html"><strong aria-hidden="true">3.2.</strong> Scalability</a></li><li class="expanded "><a href="monolith/boundaries.html"><strong aria-hidden="true">3.3.</strong> Boundaries</a></li><li class="expanded "><a href="monolith/deployment.html"><strong aria-hidden="true">3.4.</strong> Deployment</a></li><li><ol class="section"><li class="expanded "><a href="monolith/deployment/infrastructure.html"><strong aria-hidden="true">3.4.1.</strong> Infrastructure</a></li><li><ol class="section"><li class="expanded "><a href="monolith/deployment/infrastructure/metal.html"><strong aria-hidden="true">3.4.1.1.</strong> Metal</a></li><li class="expanded "><a href="monolith/deployment/infrastructure/virtualization.html"><strong aria-hidden="true">3.4.1.2.</strong> Virtualization</a></li><li class="expanded "><a href="monolith/deployment/infrastructure/containerization.html"><strong aria-hidden="true">3.4.1.3.</strong> Containerization</a></li></ol></li><li class="expanded "><a href="monolith/deployment/techniques.html"><strong aria-hidden="true">3.4.2.</strong> Techniques</a></li><li><ol class="section"><li class="expanded "><a href="monolith/deployment/techniques/manual.html"><strong aria-hidden="true">3.4.2.1.</strong> Manual</a></li><li class="expanded "><a href="monolith/deployment/techniques/automated.html"><strong aria-hidden="true">3.4.2.2.</strong> Automated</a></li></ol></li><li class="expanded "><a href="monolith/deployment/targets.html"><strong aria-hidden="true">3.4.3.</strong> Targets</a></li></ol></li></ol></li><li class="expanded "><a href="soa.html"><strong aria-hidden="true">4.</strong> Service Oriented Architecture</a></li><li class="expanded "><a href="microservice.html"><strong aria-hidden="true">5.</strong> Microservice</a></li><li><ol class="section"><li class="expanded "><a href="microservice/traits.html"><strong aria-hidden="true">5.1.</strong> Traits</a></li><li class="expanded "><a href="microservice/scalability.html"><strong aria-hidden="true">5.2.</strong> Scalability</a></li><li class="expanded "><a href="microservice/boundaries.html"><strong aria-hidden="true">5.3.</strong> Boundaries</a></li><li class="expanded "><a href="microservice/deployment.html"><strong aria-hidden="true">5.4.</strong> Deployment</a></li><li class="expanded "><a href="microservice/cloud-native.html"><strong aria-hidden="true">5.5.</strong> Cloud Native</a></li></ol></li><li class="expanded "><a href="service-communication.html"><strong aria-hidden="true">6.</strong> Service communication</a></li><li><ol class="section"><li class="expanded "><a href="service-communication/protocols.html"><strong aria-hidden="true">6.1.</strong> Protocols</a></li><li class="expanded "><a href="service-communication/traffic.html"><strong aria-hidden="true">6.2.</strong> Traffic</a></li></ol></li><li class="expanded "><a href="kubernetes.html"><strong aria-hidden="true">7.</strong> Kubernetes</a></li><li><ol class="section"><li class="expanded "><a href="kubernetes/concepts.html"><strong aria-hidden="true">7.1.</strong> Concepts</a></li><li class="expanded "><a href="kubernetes/components.html"><strong aria-hidden="true">7.2.</strong> Components</a></li><li class="expanded "><a href="kubernetes/service-scaling.html"><strong aria-hidden="true">7.3.</strong> Service Scaling</a></li><li><ol class="section"><li class="expanded "><a href="kubernetes/service-scaling/manual-scaling.html"><strong aria-hidden="true">7.3.1.</strong> Manual scaling</a></li><li class="expanded "><a href="kubernetes/service-scaling/vertical-pod-autoscaler.html"><strong aria-hidden="true">7.3.2.</strong> Vertical Pod Autoscaler</a></li><li class="expanded "><a href="kubernetes/service-scaling/horizontal-pod-autoscaler.html"><strong aria-hidden="true">7.3.3.</strong> Horizontal Pod Autoscaler</a></li></ol></li><li class="expanded "><a href="kubernetes/cluster-autoscaler.html"><strong aria-hidden="true">7.4.</strong> Cluster autoscaler</a></li><li class="expanded "><a href="kubernetes/extensibility.html"><strong aria-hidden="true">7.5.</strong> Extensibility</a></li><li><ol class="section"><li class="expanded "><a href="kubernetes/extensibility/webhooks.html"><strong aria-hidden="true">7.5.1.</strong> Webhooks</a></li><li class="expanded "><a href="kubernetes/extensibility/controllers.html"><strong aria-hidden="true">7.5.2.</strong> Controllers</a></li><li class="expanded "><a href="kubernetes/extensibility/crds.html"><strong aria-hidden="true">7.5.3.</strong> Custom Resource Definitions</a></li><li class="expanded "><a href="kubernetes/extensibility/operators.html"><strong aria-hidden="true">7.5.4.</strong> Operators</a></li><li class="expanded "><a href="kubernetes/extensibility/api-server-aggregation.html"><strong aria-hidden="true">7.5.5.</strong> API Server aggregation</a></li></ol></li></ol></li><li class="expanded "><a href="continuous-integration.html"><strong aria-hidden="true">8.</strong> Continuous integration</a></li><li><ol class="section"><li class="expanded "><a href="continuous-integration/testing.html"><strong aria-hidden="true">8.1.</strong> Testing</a></li><li><ol class="section"><li class="expanded "><a href="continuous-integration/testing/unit-tests.html"><strong aria-hidden="true">8.1.1.</strong> Unit tests</a></li><li class="expanded "><a href="continuous-integration/testing/integration-tests.html"><strong aria-hidden="true">8.1.2.</strong> Integration tests</a></li><li><ol class="section"><li class="expanded "><a href="continuous-integration/testing/integration-tests/narrow-integration-tests.html"><strong aria-hidden="true">8.1.2.1.</strong> Narrow integration tests</a></li><li class="expanded "><a href="continuous-integration/testing/integration-tests/broad-integration-tests.html"><strong aria-hidden="true">8.1.2.2.</strong> Broad integration tests</a></li></ol></li><li class="expanded "><a href="continuous-integration/testing/functional-tests.html"><strong aria-hidden="true">8.1.3.</strong> Functional tests</a></li><li class="expanded "><a href="continuous-integration/testing/end-to-end-tests.html"><strong aria-hidden="true">8.1.4.</strong> End to end tests</a></li><li class="expanded "><a href="continuous-integration/testing/acceptance-tests.html"><strong aria-hidden="true">8.1.5.</strong> Acceptance tests</a></li><li class="expanded "><a href="continuous-integration/testing/performance-tests.html"><strong aria-hidden="true">8.1.6.</strong> Performance tests</a></li><li class="expanded "><a href="continuous-integration/testing/smoke-tests.html"><strong aria-hidden="true">8.1.7.</strong> Smoke tests</a></li></ol></li><li class="expanded "><a href="continuous-integration/build-artifacts.html"><strong aria-hidden="true">8.2.</strong> Build artifacts</a></li><li class="expanded "><a href="continuous-integration/container-image-registry.html"><strong aria-hidden="true">8.3.</strong> Container image registry</a></li></ol></li><li class="expanded "><a href="continuous-delivery.html"><strong aria-hidden="true">9.</strong> Continuous delivery</a></li><li><ol class="section"><li class="expanded "><a href="continuous-delivery/ci-driven.html"><strong aria-hidden="true">9.1.</strong> CI driven</a></li><li class="expanded "><a href="continuous-delivery/gitops.html"><strong aria-hidden="true">9.2.</strong> GitOps</a></li></ol></li><li class="expanded "><a href="observability.html"><strong aria-hidden="true">10.</strong> Observability</a></li><li><ol class="section"><li class="expanded "><a href="observability/monitoring.html"><strong aria-hidden="true">10.1.</strong> Monitoring</a></li><li class="expanded "><a href="observability/logging.html"><strong aria-hidden="true">10.2.</strong> Logging</a></li><li class="expanded "><a href="observability/tracing.html"><strong aria-hidden="true">10.3.</strong> Tracing</a></li><li class="expanded "><a href="observability/metrics.html"><strong aria-hidden="true">10.4.</strong> Metrics</a></li></ol></li><li class="expanded "><a href="patterns.html"><strong aria-hidden="true">11.</strong> Patterns</a></li><li><ol class="section"><li class="expanded "><a href="patterns/api-gateway.html"><strong aria-hidden="true">11.1.</strong> API Gateway</a></li><li class="expanded "><a href="patterns/service-mesh.html"><strong aria-hidden="true">11.2.</strong> Service Mesh</a></li></ol></li><li class="expanded "><a href="security.html"><strong aria-hidden="true">12.</strong> Security</a></li><li><ol class="section"><li class="expanded "><a href="security/rbac.html"><strong aria-hidden="true">12.1.</strong> RBAC</a></li><li class="expanded "><a href="security/container-runtime.html"><strong aria-hidden="true">12.2.</strong> Container runtime</a></li><li class="expanded "><a href="security/network-isolation.html"><strong aria-hidden="true">12.3.</strong> Network isolation</a></li><li class="expanded "><a href="security/container-image-scanners.html"><strong aria-hidden="true">12.4.</strong> Container image scanners</a></li><li class="expanded "><a href="security/api-server-audit.html"><strong aria-hidden="true">12.5.</strong> API Server Audit</a></li></ol></li><li class="expanded "><a href="debugging.html"><strong aria-hidden="true">13.</strong> Debugging</a></li><li class="expanded "><a href="advanced-concepts.html"><strong aria-hidden="true">14.</strong> Advanced Concepts</a></li><li><ol class="section"><li class="expanded "><a href="advanced-concepts/virtual-kubelet.html"><strong aria-hidden="true">14.1.</strong> Virtual Kubelet</a></li><li class="expanded "><a href="advanced-concepts/deprecation-policy.html"><strong aria-hidden="true">14.2.</strong> Deprecation Policy</a></li></ol></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                
+                <div id="menu-bar" class="menu-bar">
+                    <div id="menu-bar-sticky-container">
+                        <div class="left-buttons">
+                            <button id="sidebar-toggle" class="icon-button" type="button" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                                <i class="fa fa-paint-brush"></i>
+                            </button>
+                            <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                                <li role="none"><button role="menuitem" class="theme" id="light">Light (default)</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                                <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                            </ul>
+                            
+                            <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                                <i class="fa fa-search"></i>
+                            </button>
+                            
+                        </div>
+
+                        <h1 class="menu-title">Applications in a cloud native world</h1>
+
+                        <div class="right-buttons">
+                            <a href="print.html" title="Print this book" aria-label="Print this book">
+                                <i id="print-button" class="fa fa-print"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" name="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+                
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script type="text/javascript">
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1><a class="header" href="#welcome" id="welcome">Welcome</a></h1>
+<blockquote>
+<p><strong>Note:</strong> This book is a collaborative effort and it is expected to be in
+continuous evolution. It is open for contributions at any time. Make
+it better, make it yours.</p>
+</blockquote>
+<p>Welcome to the <em>Applications in a cloud native world</em> book. This book
+will try to outline best practices when developing containerized and
+cloud native services.</p>
+<p>In order to lay out the foundations we will focus on, we first need to
+consider how services have historically been managed.</p>
+<p>Let's then jump straight to the <a href="basics.html">Basics</a>.</p>
+<h1><a class="header" href="#basics" id="basics">Basics</a></h1>
+<h2><a class="header" href="#services" id="services">Services</a></h2>
+<p>A <em>service</em> as described by the <a href="https://dictionary.cambridge.org/dictionary/english/service">Cambridge
+Dictionary</a>,
+by taking one of its meanings:</p>
+<blockquote>
+<p><em>service</em>: a system or organization that provides something
+important that the public needs.</p>
+</blockquote>
+<p>This meaning is also very accurate for the computing world. Moreover, a
+service will not necessarily only be consumed by <em>people</em>, but could
+also be consumed by other <em>systems</em>.</p>
+<h2><a class="header" href="#servers" id="servers">Servers</a></h2>
+<p>A <em>server</em>, as described by the <a href="https://en.wikipedia.org/wiki/Server_(computing)">Wikipedia</a>:</p>
+<blockquote>
+<p>A <em>server</em> is a computer program or a device that provides
+functionality for other programs or devices, called &quot;clients&quot;.</p>
+</blockquote>
+<p>It goes further, and also expand to reach a <em>service</em> definition:</p>
+<blockquote>
+<p>Servers can provide various functionalities, often called &quot;services&quot;, such
+as sharing data or resources among multiple clients, or performing
+computation for a client.</p>
+</blockquote>
+<h2><a class="header" href="#processes" id="processes">Processes</a></h2>
+<p>A <em>process</em>, as described by the <a href="https://en.wikipedia.org/wiki/Process_(computing)">Wikipedia</a>:</p>
+<blockquote>
+<p>A <em>process</em> is the instance of a computer program that is being
+executed by one or many threads. It contains the program code and
+its activity.</p>
+</blockquote>
+<p>This definition is very tied to what we know about Operating Systems,
+by referring to the <code>thread</code> term, but you get the idea.</p>
+<h2><a class="header" href="#application" id="application">Application</a></h2>
+<p>An <em>application</em>, again, as described by the <a href="https://en.wikipedia.org/wiki/Application_software">Wikipedia</a>:</p>
+<blockquote>
+<p><em>Application software</em> [...] is a program or group of programs
+designed for end users.</p>
+</blockquote>
+<p>And <a href="https://en.wikipedia.org/wiki/System_software"><em>system software</em></a>:</p>
+<blockquote>
+<p><em>System software</em> is software designed to provide a platform for
+other software.</p>
+</blockquote>
+<h1><a class="header" href="#common-ground" id="common-ground">Common ground</a></h1>
+<p>As developers, we create <em>programs</em>; they can be either <em>application
+software</em> or <em>system software</em>. These programs serve a purpose,
+whether it is for end users directly, or for other <em>systems</em> to consume.</p>
+<p><em>Application software</em> usually is meant to be consumed directly
+by end users, and so, interaction with the system will be UX driven,
+no matter what kind of UX (e.g. terminal, graphical...)</p>
+<p><em>System software</em>, however, is going to be consumed by other software,
+and as such, this creates friction on both systems. We can ask ourselves
+some questions at this point:</p>
+<ul>
+<li>
+<p>How can both evolve and still make sure that they are complying with the
+contract they signed?</p>
+</li>
+<li>
+<p>What happens to one service if the other is not responsive, and the
+former depends on the latter?</p>
+</li>
+</ul>
+<p>We will explore this and other complexities throughout this book.</p>
+<h1><a class="header" href="#monolith" id="monolith">Monolith</a></h1>
+<p>Enter the <em>monolith</em>. Let's have some fun by reading <a href="https://dictionary.cambridge.org/dictionary/english/service">one of the
+Cambridge's dictionary definitions</a>:</p>
+<blockquote>
+<p><em>monolith</em>: a large block of stone standing by itself that was put up by people in ancient times.</p>
+</blockquote>
+<p>First things first: a monolith does not intrinsically signal a bad
+design. As we will learn throughout the book, a monolith could be a
+perfectly sane solution for many projects and teams. Moreover, it can
+even be the best solution given a certain set of constraints.</p>
+<p>Let's get to a more focused definition of a <em>monolithic application</em>
+as defined by the <a href="https://en.wikipedia.org/wiki/Monolithic_application">Wikipedia</a>:</p>
+<blockquote>
+<p>a <em>monolithic application</em> describes a single-tiered software
+application in which the user interface and data access code are
+combined into a single program from a single platform.</p>
+</blockquote>
+<p>However, when transposing this definition to client-side
+architectures, we could argue that the fact that the backend is a
+single-tiered application is in itself a <em>monolith</em>, even if the user
+interface is not strictly provided by the backend.</p>
+<h1><a class="header" href="#traits" id="traits">Traits</a></h1>
+<p>A <em>monolithic application</em> has a number of traits:</p>
+<ul>
+<li>Contains the whole or a big amount of business logic</li>
+<li>Accesses persistency services
+<ul>
+<li>Databases</li>
+<li>Caches</li>
+<li>Assets</li>
+</ul>
+</li>
+</ul>
+<p>In general terms, a <em>monolith</em> could be internally structured in a
+number of modules, which encapsulates code and data that implement a particular
+functionality.</p>
+<p>For the purpose of further analysis, let's assume that a <em>monolith</em>
+has all the business logic and data access logic combined in one. This
+doesn't mean that the <em>monolithic application</em> includes the
+persistency services, but that it merely consumes them.</p>
+<h1><a class="header" href="#scalability" id="scalability">Scalability</a></h1>
+<h2><a class="header" href="#vertical-scaling" id="vertical-scaling">Vertical scaling</a></h2>
+<p><em>Vertical scaling</em> refers to the strategy of increasing the resources to a
+given machine that is running one or more servers, in order to improve
+their scalability.</p>
+<p>Vertical scaling has the limit of what the machine can cope with.</p>
+<h2><a class="header" href="#horizontal-scaling" id="horizontal-scaling">Horizontal scaling</a></h2>
+<p>In contrast, <em>horizontal scaling</em> means increasing the number of
+instances of a given server. This increase of instances can be done in
+different ways, e.g:</p>
+<ul>
+<li>Configuring a server to increase the number of threads
+<ul>
+<li>The application needs to be thread safe</li>
+</ul>
+</li>
+<li>Increasing the number of processes running a server
+<ul>
+<li>Might improve throughput under certain conditions, but limits of
+the machine running this server apply</li>
+</ul>
+</li>
+<li>Creating more instances of this server on different machines</li>
+</ul>
+<p>When we refer to horizontal scaling we are usually referring to the
+strategy of creating more instances of this server on different
+machines.</p>
+<p>Horizontal scaling of traditional monolithic applications have a
+number of challenges:</p>
+<ul>
+<li>Deployment of a new instance of the server</li>
+<li>Manage the lifecycle of a number of instances of the server in
+different machines
+<ul>
+<li>Monitoring
+<ul>
+<li>Operational</li>
+<li>Rollouts</li>
+</ul>
+</li>
+<li>Application rollout rollbacks</li>
+</ul>
+</li>
+<li>Impact on shared services, since they have now several consumers
+<ul>
+<li>Databases</li>
+<li>Key value stores</li>
+</ul>
+</li>
+<li>Instance specific knowledge
+<ul>
+<li>Disk caches</li>
+<li>Assets</li>
+</ul>
+</li>
+</ul>
+<p>Some of the challenges previously outlined might or might not apply,
+depending on the design of the application.</p>
+<h1><a class="header" href="#boundaries" id="boundaries">Boundaries</a></h1>
+<p>Boundaries in monolithic applications have been extensively discussed in many
+texts. In general, we can observe a vertical alignment in these systems:</p>
+<center>
+<table>
+<tr>
+<td>
+<p><img src="https://martinfowler.com/articles/microservices/images/conways-law.png" alt="Monolith" /></p>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<p><a href="https://martinfowler.com/articles/microservices/images/conways-law.png">Image credit</a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>Usually, one can observe a modular approach in order to achieve the
+implementation detail isolation, where every module will only export
+interfaces, meant to be consumed by other modules of the same
+system. This is what the contract would be in this case.</p>
+<p>A monolithic application can be broken down in different modules, that
+can reside inside of the same binary, or in shared libraries. A
+monolithic application can also consume third party shared libraries
+by being linked against them. This conforms a pattern on boundary
+separation and code reusability.</p>
+<p>API and ABI stability in this context is what matters the most for
+other modules that are consuming a certain module from third party
+libraries. There are many examples of this, but some would be the Qt
+Framework, Glib or Gtk.</p>
+<h1><a class="header" href="#deployment" id="deployment">Deployment</a></h1>
+<p>Once that we have created an application we want it to be consumed by
+end users or other systems. We will explore what have been the
+deployment options throughout time, both in terms of <em>infrastructure</em>,
+and in the <em>techniques</em> used to perform those deployments.</p>
+<h1><a class="header" href="#infrastructure" id="infrastructure">Infrastructure</a></h1>
+<p>Our application needs to be running somewhere, so end users and other
+systems can consume it. Infrastructure is this somewhere.</p>
+<p>Let's go through the different options that we have to deploy our application.</p>
+<h1><a class="header" href="#metal" id="metal">Metal</a></h1>
+<p>Deploying on the metal is the strategy of deploying an application
+directly on top of the operating system that is running on a given
+physical machine.</p>
+<p>Assuming we have a physical server with an operating system running,
+performing the deployment on this environment means running a number
+of steps in order for the operating system to spawn a new process that
+runs our server.</p>
+<center>
+<p><img src="monolith/deployment/infrastructure/metal_0.generated.svg" alt="" /></p>
+</center>
+<h1><a class="header" href="#virtualization" id="virtualization">Virtualization</a></h1>
+<p>A virtualized environment abstracts the concept of a physical machine,
+running on top of a physical (or virtual) machine.</p>
+<p>According to the
+<a href="https://en.wikipedia.org/wiki/Virtualization">Wikipedia</a>,
+<em>virtualization</em> is described as:</p>
+<blockquote>
+<p><em>virtualization</em>: refers to the act of creating a virtual (rather than
+actual) version of something, including virtual computer hardware
+platforms, storage devices, and computer network resources.</p>
+</blockquote>
+<p>When it comes to the deployment of applications, the strategy followed
+for <em>metal</em> deployments can also apply on virtualized environments,
+but other kind of deployments arised as well: start a machine from a
+given template (or snapshot), including the application, or a mixed
+approach in which certain components and pre-requisites come with the
+template or snapshot, and some automation is used to deploy the
+desired version of the application.</p>
+<p>Since booting virtual machines is to all effects booting a machine
+with a fully fledged operating system the startup time is still in the
+orders of metal deployments.</p>
+<center>
+<p><img src="monolith/deployment/infrastructure/virtualization_0.generated.svg" alt="" /></p>
+</center>
+<p>Or, virtualized infrastructure can also virtualize other machines,
+where we can run our application onto. This is referred as <em>nested virtualization</em>:</p>
+<center>
+<p><img src="monolith/deployment/infrastructure/virtualization_1.generated.svg" alt="" /></p>
+</center>
+<h1><a class="header" href="#containerization" id="containerization">Containerization</a></h1>
+<p><em>Containerization</em> or OS-level virtualization, according to the
+<a href="https://en.wikipedia.org/wiki/OS-level_virtualization">Wikipedia</a>:</p>
+<blockquote>
+<p>OS-level virtualization refers to an operating system paradigm in
+which the kernel allows the existence of multiple isolated user
+space instances.</p>
+</blockquote>
+<p>And it continues:</p>
+<blockquote>
+<p>Such instances [...] may look like real computers from the point of
+view of programs running in them. A computer program running on an
+ordinary operating system can see all resources (connected devices,
+files and folders, network shares, CPU power, quantifiable hardware
+capabilities) of that computer. However, programs running inside of
+a container can only see the container's contents and devices
+assigned to the container.</p>
+</blockquote>
+<p>In general, this is where Docker (formerly dotCloud) found a developer
+focused niche. The UX Docker introduced allowed developers to:</p>
+<ul>
+<li>Define container images in a reproducible and in a very easy way</li>
+<li>Distribute these container images in a so-called registry</li>
+<li>Let developers run containers, based on container images:
+<ul>
+<li>Previously distributed to a shared registry</li>
+<li>Locally built</li>
+</ul>
+</li>
+</ul>
+<p>As a result of this, it was much easier to reduce the friction and the
+dependency between the application and the system it was running on,
+because as with happens with virtual machine images, the container
+image includes all operating system components, except for the kernel.</p>
+<p>Still, the friction was not completely removed. Many containerized
+applications expect environment variables, or certain volume mounting
+to be set up, else they won't work as expected.</p>
+<p>In any case, containerization and specially the UX dotCloud introduced
+helped to make reproducible builds and environments easier with a greatly
+reduced friction surface.</p>
+<center>
+<p><img src="monolith/deployment/infrastructure/containerization_0.generated.svg" alt="" /></p>
+</center>
+<p>Our containers can also run on top of virtualized machines:</p>
+<center>
+<p><img src="monolith/deployment/infrastructure/containerization_1.generated.svg" alt="" /></p>
+</center>
+<h1><a class="header" href="#techniques" id="techniques">Techniques</a></h1>
+<p>Deployment techniques vary, but in general we can categorize them in
+<em>manual</em> or <em>automated</em>.</p>
+<p>A <em>manual</em> deployment is triggered by a human, at any moment in time,
+whereas an <em>automated</em> deployment is triggered by a CI/CD component,
+such as Jenkins, or Gitlab.</p>
+<h1><a class="header" href="#manual" id="manual">Manual</a></h1>
+<p>A deployment could mean &quot;upload through FTP&quot; the new version of the
+website. It could also mean, &quot;perform a git pull&quot; on the production
+server, or some other similar way of deploying a new version of our
+application.</p>
+<p>Needless to say this was tricky, for several reasons:</p>
+<ul>
+<li>How does the system behave when in the middle of a deployment?
+<ul>
+<li>Can a request fail because it hit a codepath when the latest
+version of the application wasn't fully deployed?</li>
+</ul>
+</li>
+<li>If a certain logical change requires a database migration, or
+persistency migration
+<ul>
+<li>How is it performed?</li>
+<li>Is it safe to re run this migration, if run by mistake?</li>
+<li>Does it require service downtime until the migration is done?</li>
+</ul>
+</li>
+<li>How to check whether the newly deployed version of the application
+is performing normally?
+<ul>
+<li>What will signal us if the deployment is failing?</li>
+<li>Will we notice before all our users notice?</li>
+</ul>
+</li>
+<li>If proven problematic, how to rollback the deployment?
+<ul>
+<li>If database migration, or persistency migration was required, how
+to rollback this as well?</li>
+</ul>
+</li>
+<li>How fast can we react upon these events, without committing more
+mistakes along the way?</li>
+</ul>
+<p>Tools like <a href="https://capistranorb.com/">Capistrano</a> have emerged in
+order to perform a set of commands on different machines.</p>
+<h1><a class="header" href="#automated" id="automated">Automated</a></h1>
+<p>The automated deployment strategy leverages the so called Continuous
+Integration and Continuous Delivery methodologies.</p>
+<p>This strategy might involve a tool like Jenkins to run all the
+required tests to ensure that a new version of the application passes
+all required tests, and then, deploy it to the given infrastructure in
+a semi-manual (requiring manual confirmation) or completely automatic fashion.</p>
+<h1><a class="header" href="#targets" id="targets">Targets</a></h1>
+<p>A deployment target can be understood as a machine, or a set of
+machines where the application is going to be deployed.</p>
+<p>Ultimately, this machine needs to have some component listening for
+incoming requests. Generally, a web server is exposed, that will in
+turn talk to our application internally, e.g. using a UNIX socket.</p>
+<p>However, it's also common to see <em>Application servers</em> (like Zend) or
+even <em>Servlet containers</em> (like Tomcat), that allow you to deploy your
+application on a fully fledged web server.</p>
+<h1><a class="header" href="#service-oriented-architecture" id="service-oriented-architecture">Service Oriented Architecture</a></h1>
+<p>According to
+<a href="https://en.wikipedia.org/wiki/Service-oriented_architecture">Wikipedia</a>,
+<em>Service Oriented Architecture</em>, or <em>SOA</em> definition is:</p>
+<blockquote>
+<p><em>Service-oriented architecture</em> (SOA) is a style of software design
+where services are provided to the other components by application
+components, through a communication protocol over a network.</p>
+</blockquote>
+<p>And so, the core of a <em>SOA</em> is the loose coupling of the different
+services that conform a given system. According to the <a href="http://www.soa-manifesto.org/">SOA manifesto</a>,
+we can point some traits of Service Oriented Architectures:</p>
+<ul>
+<li><strong>Business value</strong> over technical strategy</li>
+<li><strong>Strategic goals</strong> over project-specific benefits</li>
+<li><strong>Intrinsic interoperability</strong> over custom integration</li>
+<li><strong>Shared services</strong> over specific-purpose implementations</li>
+<li><strong>Flexibility</strong> over optimization</li>
+<li><strong>Evolutionary refinement</strong> over pursuit of initial perfection</li>
+</ul>
+<p>This is a different approach as opposed to internally splitting our
+application in modules to define boundaries. With a <em>SOA</em>, we will
+have a set of services that can talk to each other over the network,
+and so their API will be some form of HTTP or RPC API.</p>
+<h1><a class="header" href="#microservice" id="microservice">Microservice</a></h1>
+<p>Let's write what <em>microservices</em> means according to the <a href="https://en.wikipedia.org/wiki/Microservices">Wikipedia</a>,
+once again:</p>
+<blockquote>
+<p>Microservices are a software development technique [...] that arranges
+an application as a collection of loosely coupled services. In a
+microservices architecture, services are fine-grained and the
+protocols are lightweight.</p>
+</blockquote>
+<p>Let's take a step back and introduce the notion of <em>component</em>, on
+<a href="https://martinfowler.com/articles/microservices.html">Martin Fowler</a>'s
+words:</p>
+<blockquote>
+<p>Our definition is that a <em>component</em> is a unit of software that is
+independently replaceable and upgradeable.</p>
+</blockquote>
+<p>And he continues:</p>
+<blockquote>
+<p>Microservice architectures will use libraries, but their primary way
+of componentizing their own software is by breaking down into
+services. We define libraries as components that are linked into a
+program and called using in-memory function calls, while services
+are out-of-process components who communicate with a mechanism such
+as a web service request, or remote procedure call.</p>
+<p>One main reason for using services as components (rather than
+libraries) is that services are independently deployable.</p>
+<p>[...]</p>
+</blockquote>
+<h1><a class="header" href="#traits-1" id="traits-1">Traits</a></h1>
+<p>While there is no &quot;official&quot; definition of a microservice, we can
+settle upon certain characteristics, based on what was described in
+the previous section:</p>
+<ul>
+<li>It has its own lifecycle</li>
+<li>Consumed over a well defined API</li>
+<li>It can be independently scaled as required</li>
+<li>Simple enough to be easily understood</li>
+<li>Has its isolated and own persistence, if any; it will never access other
+microservice persistence</li>
+<li>Communicates with other services using their exposed API's in order
+to cross boundaries</li>
+</ul>
+<p>As a result of this, and given that every component (service) in the
+system exposes its functionality through a well defined (and hopefully
+documented) API, then, every microservice:</p>
+<ul>
+<li>Can be implemented in the most appropriate language and framework
+for the work</li>
+<li>Can have its own internal rules; e.g. one core microservice might be
+formally verified in isolation</li>
+<li>Can evolve at its own pace, as long as the exposed API's honor the
+contract that its consumers expect</li>
+</ul>
+<h1><a class="header" href="#scalability-1" id="scalability-1">Scalability</a></h1>
+<h2><a class="header" href="#vertical-scaling-1" id="vertical-scaling-1">Vertical scaling</a></h2>
+<p>Vertical scaling doesn't have any meaningul differences from the
+description provided in the <a href="microservice/./../monolith/scalability.html#vertical-scaling">Monolith section</a>.</p>
+<h2><a class="header" href="#horizontal-scaling-1" id="horizontal-scaling-1">Horizontal scaling</a></h2>
+<p>Horizontally scaling microservices should be an easy operation to
+perform, potentially automated by an external orchestrator, such as
+Kubernetes.</p>
+<p>One of the driving principles for microservices apart from loosely
+coupled services is to be able to adapt and react to change faster,
+horizontally scaling a given service in a fast way is crucial for our
+microservice architecture to be flexible so it can properly absorb
+traffic spikes.</p>
+<h1><a class="header" href="#boundaries-1" id="boundaries-1">Boundaries</a></h1>
+<p>Boundaries in microservices, as <a href="https://martinfowler.com/articles/microservices.html">Martin
+Fowler</a>
+describes, are organized around business capabilities:</p>
+<blockquote>
+<p>The microservice approach to division is different, splitting up
+into services organized around business capability.</p>
+<p>Such services take a broad-stack implementation of software for that
+business area, including user-interface, persistant storage, and any
+external collaborations. Consequently the teams are
+cross-functional, including the full range of skills required for
+the development: user-experience, database, and project management.</p>
+</blockquote>
+<center>
+<table>
+<tr>
+<td>
+<p><img src="https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png" alt="Microservices" /></p>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<p><a href="https://martinfowler.com/articles/microservices/images/PreferFunctionalStaffOrganization.png">Image credit</a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>Given a small set of microservices, everyone on the team managing
+those microservices is closer to the whole functionality a service
+provides, and become a cross functional team; because they are able to
+understand the whole service from end to end.</p>
+<p>And ultimately, how both look, when put side by side:</p>
+<center>
+<table>
+<tr>
+<td>
+<p><img src="https://martinfowler.com/articles/microservices/images/decentralised-data.png" alt="Decentralized data" /></p>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<p><a href="https://martinfowler.com/articles/microservices/images/decentralised-data.png">Image credit</a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>On the previous diagram is clear how in general terms, a monolith uses
+a single database, whereas a set of microservices use their own
+storage, reponsibility of different teams, and how a microservice can
+at any moment in time be formed by one or more instances, depending on
+the load, and on the decisions taken by the administrators and/or the
+orchestrator.</p>
+<h1><a class="header" href="#deployment-1" id="deployment-1">Deployment</a></h1>
+<p>Deployment strategies for microservices can be similar to deploying
+monoliths, <a href="microservice/./../monolith/deployment.html">described in a previous section</a>.</p>
+<p>However, when managing a constellation of microservices things get
+trickier, and this is where an orchestrator comes handy.</p>
+<p>In some instances, companies have used their own tooling to deploy and
+orchestrate microservice deployment, <a href="https://thenewstack.io/how-weatherbug-uses-microservices-without-containers/">even without
+containers</a>.</p>
+<p>It has also been typical to see using containers, but in a raw way,
+with some <em>Infrastucture as Code</em> (IAC) or <em>Configuration as Code</em>
+(CAC) tooling like <em>Ansible</em>, <em>Chef</em> or <em>Puppet</em> handling the <code>docker</code>
+CLI directly for managing the microservices lifecycle.</p>
+<p>Whatever floats your boat, there is no silver bullet here, but
+replicating this tooling again and again for different applications is
+costly and error-prone. Orchestrators can greatly help in making this
+user experience uniform across different environments and
+infrastructure; also, and as we'll discover later they can greatly
+respond to external change, trying to ensure that our constraints are
+always met, when possible.</p>
+<p>This was the spirit in which <em>Kubernetes</em> was conceived, and this is
+why for the remaining on this book we will deploy our microservices on
+top of an orchestrator. <em>Kubernetes</em> in our case.</p>
+<h1><a class="header" href="#cloud-native" id="cloud-native">Cloud Native</a></h1>
+<p><a href="https://github.com/cncf/toc/blob/e58a97f253569ee1d79d656baafc685eaceb8786/DEFINITION.md">Cloud Native Computing Foundation (CNCF) Technical
+Oversight Commitee (TOC)</a>'s
+<em>Cloud Native</em> definition is:</p>
+<blockquote>
+<p><em>Cloud native</em> technologies empower organizations to build and run
+scalable applications in modern, dynamic environments such as
+public, private, and hybrid clouds. Containers, service meshes,
+microservices, immutable infrastructure, and declarative APIs
+exemplify this approach.</p>
+<p>These techniques enable loosely coupled systems that are resilient,
+manageable, and observable. Combined with robust automation, they
+allow engineers to make high-impact changes frequently and
+predictably with minimal toil.</p>
+<p>[...]</p>
+</blockquote>
+<p>Let's remind what traits are inherited from <em>microservices</em>:</p>
+<ul>
+<li>It has its own lifecycle</li>
+<li>Consumed over a well defined API</li>
+<li>It can be independently scaled as required</li>
+<li>Simple enough to be easily understood</li>
+<li>Has its isolated and own persistence, if any; it will never access other
+microservice persistence</li>
+<li>Communicates with other services using their exposed API's in order
+to cross boundaries</li>
+</ul>
+<p>and, some of the consequences:</p>
+<ul>
+<li>Can be implemented in the most appropriate language and framework
+for the work</li>
+<li>Can have its own internal rules; e.g. one core microservice might be
+formally verified in isolation</li>
+<li>Can evolve at its own pace, as long as the exposed API's honor the
+contract that its consumers expect</li>
+</ul>
+<p>So, aside from this traits inherited from the fact that a Cloud Native
+application is implemented as a microservice, what are the unique
+traits of Cloud Native applications that not all microservices meet?
+Let's go through some:</p>
+<ul>
+<li>Container packaged
+<ul>
+<li>While this might seem an implementation detail, a Cloud Native
+application comes in the form of a container with all required
+dependencies for that specific microservice to work correctly.</li>
+</ul>
+</li>
+<li>Dynamically managed
+<ul>
+<li>Cloud Native applications lifecycle are managed by some external
+orchestrator that is able to schedule, scale, monitor and control
+the execution of the Cloud Native application.</li>
+</ul>
+</li>
+<li>Failure resiliency
+<ul>
+<li>Cloud Native applications are built with failure in mind; every
+service that they access to can fail at any time, and it should
+not result in permanent failure.</li>
+</ul>
+</li>
+<li>Metrics
+<ul>
+<li>Cloud Native applications expose metrics, so an external
+orchestrator is able to take decisions based on load, like scaling
+the service in an automated way.</li>
+</ul>
+</li>
+<li>Health checks
+<ul>
+<li>Liveness probes
+<ul>
+<li>Cloud Native applications expose health check endpoints, so an
+external orchestrator is able to restart the service if it's not
+running as expected.</li>
+</ul>
+</li>
+<li>Readiness or startup probes
+<ul>
+<li>Cloud Native applications expose readiness check endpoints, so an
+external orchestrator is able to know when to route requests to a
+recently started instance, only when it's ready to process them.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Logging
+<ul>
+<li>Cloud Native applications usually log into <code>stdout</code> and <code>stderr</code>
+streams. Usually, all logs from all applications will be
+aggregated into a unified logging layer. This allows us to improve
+the observability upon a set of microservices at any given time.</li>
+</ul>
+</li>
+<li>Tracing
+<ul>
+<li>Cloud Native applications might include tracing
+instrumentation. The concept of <em>spans</em> allows us to understand
+what happened across a distributed set of services that spawned
+a tree of requests from the initial request.</li>
+</ul>
+</li>
+<li>Scalable
+<ul>
+<li>Cloud Native applications can be scaled in and scaled out as
+required, based on current and expected demand.</li>
+</ul>
+</li>
+<li>Ephemeral
+<ul>
+<li>A Cloud Native application instance has present that is ephemeral,
+and so, it can be instantiated at any time, or destroyed at any
+time by an external orchestrator.</li>
+</ul>
+</li>
+</ul>
+<h1><a class="header" href="#service-communication" id="service-communication">Service communication</a></h1>
+<p>When writing a new service, or when consuming other services, there
+are some questions that require an answer:</p>
+<ul>
+<li>Is this service meant to be consumed by external parties?</li>
+<li>How will this service be consumed?</li>
+<li>How do requests get authenticated?</li>
+<li>How do requests get authorized?</li>
+<li>What is the Service Level Agreement (SLA) of this service?
+<ul>
+<li>Even if internal, SLA might apply across services and teams</li>
+</ul>
+</li>
+</ul>
+<p>There are different types of services in a Service Oriented
+Architecture: <em>internal</em> and <em>external</em>.</p>
+<h2><a class="header" href="#internal-services" id="internal-services">Internal services</a></h2>
+<p>Internal services implement a certain business capability, or a part
+of it. They are meant to be consumed by other services within the
+system.</p>
+<h2><a class="header" href="#external-services" id="external-services">External services</a></h2>
+<p>External services are meant to be consumed by end users. An example of
+these services, are for example public API's used by third parties to
+integrate some functionality from our product into their platform.</p>
+<h2><a class="header" href="#service-intra-communication" id="service-intra-communication">Service intra communication</a></h2>
+<p>Internal services can communicate with one another. External services
+can communicate with internal services, but internal services should
+not communicate with external services of the same system.</p>
+<p>Any of them can communicate with external systems if desired.</p>
+<h1><a class="header" href="#protocols" id="protocols">Protocols</a></h1>
+<p>A service can be exposed in a number of ways in order to be
+consumed. Let's name a few ways:</p>
+<table><thead><tr><th>Protocol</th><th>Best suited for</th><th>Description</th></tr></thead><tbody>
+<tr><td>HTTP</td><td>External</td><td>An HTTP API that exposes endpoints for interacting with the service</td></tr>
+<tr><td>GraphQL</td><td>External</td><td>Query language that allows for fine grained retrieval of data</td></tr>
+<tr><td>Remote Procedure Calls</td><td>Internal</td><td>RPC's are a lightweight way of exposing service endpoints</td></tr>
+</tbody></table>
+<h2><a class="header" href="#http" id="http">HTTP</a></h2>
+<p>An HTTP API could be RESTful or not. It exposes a number of API
+endpoints that can be consumed with HTTP verbs, usually: <code>GET</code>, <code>HEAD</code>,
+<code>POST</code>, <code>PUT</code>, <code>PATCH</code> and others.</p>
+<p>Data on HTTP requests, whether sent or received by a client require
+some kind of type negotiation, in which the client encodes the request
+using some kind of serializing (e.g. XML, JSON...), and annotates the
+request to be sent to the server; along with an expected type in
+which the results should come back.</p>
+<p>Different HTTP API's will behave different, and each implementation
+might have specialties that require attention: e.g. rate limits
+reported on response headers, sessions, or token based authentication
+(like <a href="https://jwt.io/">JWT</a>).</p>
+<h2><a class="header" href="#graphql" id="graphql">GraphQL</a></h2>
+<p><a href="https://graphql.org/">GraphQL</a> is usually served over HTTP, however,
+its approach is slightly different to a resource-based
+service. GraphQL exposes a single endpoint where it's possible to
+query and mutate resources.</p>
+<p>GraphQL contains a representation of all the objects it's able to
+manage, and thus, it exposes this single endpoint, where clients can
+cherry-pick what exact parts of the resources they want back from the
+server.</p>
+<h2><a class="header" href="#remote-procedure-calls" id="remote-procedure-calls">Remote Procedure Calls</a></h2>
+<p>Remote Procedure Calls (RPC's) are not a new idea. SOAP or XML-RPC are
+hardly something new.</p>
+<p>However, Remote Procedure Calls in a Cloud Native world are usually
+referred by frameworks like <a href="https://grpc.io/">gRPC</a>, or
+<a href="https://capnproto.org/">Cap'n Proto</a>.</p>
+<p>gRPC is typically used along with <a href="https://developers.google.com/protocol-buffers">protocol
+buffers</a> as the
+serializing/deserializing layer.</p>
+<p>They allow us to perform very lightweight calls on other services, and
+use HTTP/2 under the covers, so they rely on long lived connections
+and on request/response multiplexing. This behavior requires
+awareness, because load balancing requests is not as trivial as it is
+with HTTP/1.1 requests, and usually require some <a href="https://grpc.io/blog/loadbalancing/">client-side explicit
+balancing</a>.</p>
+<p>In gRPC, a definition is written for a given service, along with the
+procedures and types that are exposed and can be consumed, and it is
+able to create a stub of both the server and client for any of the
+supported languages.</p>
+<h1><a class="header" href="#traffic" id="traffic">Traffic</a></h1>
+<p>There are different kinds of traffic that we'll refer to later on
+throughout this book.</p>
+<h3><a class="header" href="#inbound-or-ingress" id="inbound-or-ingress">Inbound (or ingress)</a></h3>
+<p>Inbound traffic is the traffic that comes from outside to the cluster,
+towards a service running inside it. This is typically an end-user,
+or an external system accessing our external API's.</p>
+<h3><a class="header" href="#internal" id="internal">Internal</a></h3>
+<p>Internal traffic is traffic that is generated inside the cluster, and
+whose destination is another service within the cluster. This is
+typically a service to service request.</p>
+<h3><a class="header" href="#outbound-or-egress" id="outbound-or-egress">Outbound (or egress)</a></h3>
+<p>Outbound traffic is traffic originated inside the cluster, whose
+destination is somewhere outside the cluster, can be some service of
+our infrastructure running outside of the cluster, or a third party
+API that we are integrated with.</p>
+<h1><a class="header" href="#kubernetes" id="kubernetes">Kubernetes</a></h1>
+<p>Based on the <a href="https://kubernetes.io">official Kubernetes website</a>
+definition:</p>
+<blockquote>
+<p>Kubernetes (K8s) is an open-source system for automating deployment,
+scaling, and management of containerized applications.</p>
+</blockquote>
+<p>However, I don't think this description honors what Kubernetes really
+does best: <strong>reconcile resources</strong>.</p>
+<p>Funnily enough, the fact that Kubernetes is able to deploy and manage
+conterinerized applications is primarily because of how the
+<strong>reconciliation</strong> of resources happen.</p>
+<h2><a class="header" href="#application-and-environment" id="application-and-environment">Application and environment</a></h2>
+<p>Usually, when we had to deploy an application we had constant friction
+between the application developers and the operations teams -- the
+ones that will ultimately be putting the application into production
+and maintain its day-to-day operation.</p>
+<p>Let's take a step back and see what each step on this story brought
+us.</p>
+<h3><a class="header" href="#containerization-1" id="containerization-1">Containerization</a></h3>
+<p>By being able to easily create a &quot;snapshot&quot; of our application and all
+its dependencies, we were able to greatly reduce the friction between
+our application and the system it's running on. As developers, we now
+have much greater control on the environment our application is
+running on.</p>
+<p>Of course, this does not mean that we are the sole responsibles of
+this, but now we have more <strong>certainty</strong> of what is the environment
+our application runs on.</p>
+<p>Still, something is missing: how our application is exposed to the
+world. There is still a gap here: we provide the snapshot of our
+application, but how it's exposed and operated is not up to us.</p>
+<h3><a class="header" href="#infrastructure-as-config" id="infrastructure-as-config">Infrastructure as config</a></h3>
+<p>Kubernetes is usually referred to as <em>Infrastructure as code</em>, but in
+this sense I prefer to call it <em>Infrastructure as config</em>. Now, with
+Kubernetes, we have the ability to track the way our application is
+deployed and managed:</p>
+<ul>
+<li>What versions of every component of our applications are bundled
+together?</li>
+<li>Application secrets</li>
+<li>Configuration</li>
+<li>Storage used by the application</li>
+<li>How the application is exposed</li>
+<li>Security
+<ul>
+<li>What can this application know about the platform?</li>
+<li>What permissions have this application when running, at the node level?</li>
+</ul>
+</li>
+</ul>
+<p>In general, we can see that while containerizing made our snapshot of
+our application broader, Kubernetes also includes how this application
+is operated in its snapshot. We now have a complete, reproducible way
+of deploying an exact version of our application, including <strong>how</strong> it
+is operated.</p>
+<h1><a class="header" href="#concepts" id="concepts">Concepts</a></h1>
+<p>This information is detailed in the <a href="https://kubernetes.io/docs/concepts/">Kubernetes' official documentation</a>.</p>
+<h2><a class="header" href="#kubernetes-objects" id="kubernetes-objects">Kubernetes Objects</a></h2>
+<h3><a class="header" href="#basic-abstractions" id="basic-abstractions">Basic abstractions</a></h3>
+<h4><a class="header" href="#pod" id="pod">Pod</a></h4>
+<h4><a class="header" href="#service" id="service">Service</a></h4>
+<h4><a class="header" href="#volume" id="volume">Volume</a></h4>
+<h4><a class="header" href="#namespace" id="namespace">Namespace</a></h4>
+<h3><a class="header" href="#higher-level-abstractions" id="higher-level-abstractions">Higher level abstractions</a></h3>
+<h4><a class="header" href="#deployment-2" id="deployment-2">Deployment</a></h4>
+<h4><a class="header" href="#daemonset" id="daemonset">DaemonSet</a></h4>
+<h4><a class="header" href="#statefulset" id="statefulset">StatefulSet</a></h4>
+<h4><a class="header" href="#replicaset" id="replicaset">ReplicaSet</a></h4>
+<h4><a class="header" href="#job" id="job">Job</a></h4>
+<h1><a class="header" href="#components" id="components">Components</a></h1>
+<h2><a class="header" href="#the-api-server" id="the-api-server">The API Server</a></h2>
+<p>Let's start with a very simple overview, and build on top of that:</p>
+<center>
+<p><img src="kubernetes/components_0.generated.svg" alt="" /></p>
+</center>
+<p>As users, we will use some kind of client to contact the API Server,
+allowing us to <em>list</em>, <em>get</em>, <em>create</em>, <em>modify</em> or <em>delete</em>
+resources.</p>
+<p>These resources are stored by the <em>API Server</em> in some kind of
+<em>Key Value Store</em>. The ubiquitous <em>Key Value Store</em> used for Kubernetes is
+<a href="https://etcd.io"><em>etcd</em></a>. However, and as we'll discover later, any
+other backend implementing the <em>etcd</em> gRPC interface would work as
+well (this is the idea behind <a href="https://github.com/rancher/kine"><em>Kine</em></a>,
+for example).</p>
+<p>Now, we are able to create and manipulate resources. The <em>API Server</em>
+will be the piece that will perform Authentication, Authorization, and
+similar features for us, and will eventually store those resources
+into <em>etcd</em>. However, we are missing the <em>reconciliation</em> part yet.</p>
+<h2><a class="header" href="#the-controller-manager" id="the-controller-manager">The Controller Manager</a></h2>
+<p>For this, there is a component in Kubernetes called the <em>Controller
+Manager</em>. The <em>Controller Manager</em> has a number of controllers that
+can be opted-in, or opted-out. For the sake of simplicity, let's
+assume that we use the default ones.</p>
+<p>The <em>Controller Manager</em> is just another client, in that it connects
+to the <em>API Server</em> in order to watch and manipulate resources.</p>
+<p>Let's draw it.</p>
+<center>
+<p><img src="kubernetes/components_1.generated.svg" alt="" /></p>
+</center>
+<p>Let's describe what the <em>Controller Manager</em> is, based on the <a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/">official
+documentation</a>:</p>
+<blockquote>
+<p>[...] is a daemon that embeds the core control loops shipped with
+Kubernetes. In applications of robotics and automation, a control
+loop is a non-terminating loop that regulates the state of the
+system. In Kubernetes, a controller is a control loop that watches
+the shared state of the cluster through the apiserver and makes
+changes attempting to move the current state towards the desired
+state.</p>
+</blockquote>
+<p>Now, what is the <em>Controller Manager</em> reconciling exactly? We are
+going to get a bit ahead of time here, but stay with me. Let me
+describe two Kubernetes concepts, in the easiest possible way:</p>
+<ul>
+<li><em>Pod</em>: is a group of one or more containers.</li>
+<li><em>ReplicaSet</em>: set of replica <em>Pods</em>. Guarantees the availability of a
+specified number of identical <em>Pods</em>.</li>
+</ul>
+<p>A <em>ReplicaSet</em> allows us to configure a <em>Pod</em> template inside it,
+along with a number of replicas that we want running of that <em>Pod</em>.</p>
+<p>As such, we as clients can directly create <em>Pods</em>, or we can create
+<em>ReplicaSets</em>.</p>
+<p><em>ReplicaSets</em> will be <em>reconciled</em> by the <em>ReplicaSetController</em> (one
+of the controllers bundled with the <em>Controller Manager</em>), and it will
+in turn create as many <em>Pods</em> as required based on the number of
+desired replicas.</p>
+<blockquote>
+<p><strong>Important</strong>: by creating a <em>ReplicaSet</em>, the <em>ReplicaSetController</em>
+in the <em>Controller Manager</em> <strong>reconciles</strong> the current state (no <em>Pods</em>
+exist for this <em>Replica Set</em>), to a new state (desired number of <em>Pods</em>
+exist for this <em>Replica Set</em>), by creating the <em>Pods</em> itself against
+the <em>API Server</em>. <strong>However</strong>, <em>ReplicaSets</em> and <em>Pods</em> are just
+<strong>resources</strong> sitting on our <em>Key Value Store</em>; nothing is running yet.</p>
+</blockquote>
+<h2><a class="header" href="#the-kubelet" id="the-kubelet">The Kubelet</a></h2>
+<p>The <em>Kubelet</em> is the Kubernetes node agent. It runs on every machine
+that is part of our cluster, and is another <em>API Server</em> client.</p>
+<p>Let's draw it.</p>
+<center>
+<p><img src="kubernetes/components_2.generated.svg" alt="" /></p>
+</center>
+<p>Provided we have two nodes in our infrastructure capable of running
+workloads, the diagram would look like this:</p>
+<center>
+<p><img src="kubernetes/components_3.generated.svg" alt="" /></p>
+</center>
+<p>The <em>Kubelet</em> will then be yet another client of the <em>API Server</em>,
+watching for <em>Pods</em> that are assigned to it, and again, <em>reconcile</em>
+the <strong>current</strong> status (what pods are running right now on this machine?),
+with the <strong>desired</strong> status (what pods should be running right now on
+this machine?).</p>
+<p>It will use a Container Runtime (such as Docker, cri-o or containerd),
+in order to manage the containers defined in <em>Pods</em> (creating, or
+deleting them).</p>
+<p>Now, if we created a <em>Replica Set</em>, that resulted in <em>Pods</em> being
+created by the <em>ReplicaSetController</em>, how do these <em>Pods</em> get
+<strong>scheduled</strong> on any of the nodes, so the <em>Kubelet</em> on that node can
+then <strong>reconcile</strong> and create the real workloads?</p>
+<h2><a class="header" href="#the-scheduler" id="the-scheduler">The Scheduler</a></h2>
+<p>As you can imagine, its job is to <em>schedule</em> workloads. Let's get more
+into detail: the <em>Scheduler</em> is watching the <em>API Server</em> for <em>Pods</em>
+that are <strong>unscheduled</strong>, and will assign a node for each <em>Pod</em>, based
+on specific decision algorithms, also taking into account specific
+user-provided preferences for those workloads.</p>
+<p>Let's draw it.</p>
+<p><img src="kubernetes/components_4.generated.svg" alt="" /></p>
+<p>And so, again, the <em>Scheduler</em> is just another <em>API Server</em> client.</p>
+<h2><a class="header" href="#the-proxy" id="the-proxy">The Proxy</a></h2>
+<p>The Kubernetes Proxy (or <em>kube-proxy</em>) is yet another Kubernetes
+component running on all nodes of the cluster. Its main duty is to
+install networking rules on the host, so pods can reach internal
+service IP addresses.</p>
+<p>Let's draw it.</p>
+<center>
+<p><img src="kubernetes/components_5.generated.svg" alt="" /></p>
+</center>
+<p>The Kubernetes Proxy usually runs in a containerized fashion, but that
+is not relevant for the purpose of this diagrams. Let's draw it with
+two nodes again:</p>
+<p><img src="kubernetes/components_6.generated.svg" alt="" /></p>
+<p>Some CNI providers have enabled the ability to not depend on the
+Kubernetes Proxy, such as <a href="https://cilium.io">cilium</a>.</p>
+<h1><a class="header" href="#service-scaling" id="service-scaling">Service Scaling</a></h1>
+<h1><a class="header" href="#manual-scaling" id="manual-scaling">Manual scaling</a></h1>
+<h1><a class="header" href="#vertical-pod-autoscaler" id="vertical-pod-autoscaler">Vertical Pod Autoscaler</a></h1>
+<h1><a class="header" href="#horizontal-pod-autoscaler" id="horizontal-pod-autoscaler">Horizontal Pod Autoscaler</a></h1>
+<h1><a class="header" href="#cluster-autoscaler" id="cluster-autoscaler">Cluster autoscaler</a></h1>
+<h1><a class="header" href="#extensibility" id="extensibility">Extensibility</a></h1>
+<h1><a class="header" href="#webhooks" id="webhooks">Webhooks</a></h1>
+<h1><a class="header" href="#controllers" id="controllers">Controllers</a></h1>
+<h1><a class="header" href="#custom-resource-definitions" id="custom-resource-definitions">Custom Resource Definitions</a></h1>
+<h1><a class="header" href="#operators" id="operators">Operators</a></h1>
+<h1><a class="header" href="#api-server-aggregation" id="api-server-aggregation">API Server aggregation</a></h1>
+<h1><a class="header" href="#continuous-integration" id="continuous-integration">Continuous integration</a></h1>
+<p>Continuous integration, as defined by
+<a href="https://www.thoughtworks.com/continuous-integration">ThoughtWorks</a>:</p>
+<blockquote>
+<p>Continuous Integration (CI) is a development practice that requires
+developers to integrate code into a shared repository several times
+a day. Each check-in is then verified by an automated build,
+allowing teams to detect problems early.</p>
+<p>By integrating regularly, you can detect errors quickly, and locate
+them more easily.</p>
+</blockquote>
+<p>The idea behind continuous integration is to have better certainties
+when it comes to deploying an evolution of an application.</p>
+<p>By having this constant feedback with small code iterations, we can
+be more certain if:</p>
+<ul>
+<li>
+<p>A proposed change to the codebase is breaking a certain existing
+functionality.</p>
+</li>
+<li>
+<p>A proposed change to the codebase is not fullfilling a certain new
+functionality.</p>
+</li>
+<li>
+<p>A proposed change to the codebase is not including bug regressions.</p>
+</li>
+<li>
+<p>A combination of changes to the codebase is breaking existing or new
+functionality, when both in isolation looked fine.</p>
+</li>
+<li>
+<p>A third party change in our dependencies is breaking existing
+functionality.</p>
+</li>
+</ul>
+<p>In general, it's a safety net before we deploy our application, so we
+can have a higher level of certainty that based on the different tests
+we provided, all of them are reporting success. Of course, there is
+always a huge negative space -- functionalities and regressions not
+covered by our tests, but anyhow we are in a much better position than
+if our negative space was the whole space.</p>
+<h1><a class="header" href="#testing" id="testing">Testing</a></h1>
+<p>Testing is a fundamental piece of Continuous Integration, let's dive
+into what kind of tests we can encounter.</p>
+<h1><a class="header" href="#unit-tests" id="unit-tests">Unit tests</a></h1>
+<p>Unit tests allow us to test very close to the logic of the
+application. These tests primary goal is to ensure that the
+implementation of our functions and methods work as expected, and they
+usually test corner and regular cases.</p>
+<p>These tests should be very fast to execute, and they should be
+executed very often.</p>
+<p>If we are following <a href="https://en.wikipedia.org/wiki/Test-driven_development">Test Driven Development
+(TDD)</a>,
+best practices recommend:</p>
+<ul>
+<li>Write a unit test</li>
+<li>Run all tests; confirm the test failure</li>
+<li>Implement the code</li>
+<li>Run all tests; confirm the test success</li>
+<li>Refactor the code</li>
+<li>Repeat</li>
+</ul>
+<h1><a class="header" href="#integration-tests" id="integration-tests">Integration tests</a></h1>
+<p>Integration tests are at a higher level than unit tests. On <a href="https://martinfowler.com/bliki/IntegrationTest.html">Martin
+Fowler</a>'s words:</p>
+<blockquote>
+<p>Integration tests determine if independently developed units of
+software work correctly when they are connected to each other.</p>
+</blockquote>
+<p>Martin advocates for two different level of Integration tests, that
+we'll discuss in the following sections: <em>Narrow integration tests</em>
+and <em>Broad integration tests</em>.</p>
+<h1><a class="header" href="#narrow-integration-tests" id="narrow-integration-tests">Narrow integration tests</a></h1>
+<p><em>Narrow integration tests</em>, as described by <a href="https://martinfowler.com/bliki/IntegrationTest.html">Martin
+Fowler</a>:</p>
+<ul>
+<li>
+<p>Exercise only that portion of the code in my service that talks to a
+separate service</p>
+</li>
+<li>
+<p>Uses test doubles of those services, either in process or remote</p>
+</li>
+<li>
+<p>Thus consist of many narrowly scoped tests, often no larger in scope
+than a unit test (and usually run with the same test framework
+that's used for unit tests)</p>
+</li>
+</ul>
+<p>By the nature of using test doubles, these tests should be in the
+orders of unit tests to set up.</p>
+<h1><a class="header" href="#broad-integration-tests" id="broad-integration-tests">Broad integration tests</a></h1>
+<p><em>Broad integration tests</em>, as described by <a href="https://martinfowler.com/bliki/IntegrationTest.html">Martin
+Fowler</a>:</p>
+<ul>
+<li>
+<p>Require live versions of all services, requiring substantial test
+environment and network access</p>
+</li>
+<li>
+<p>Exercise code paths through all services, not just code responsible
+for interactions</p>
+</li>
+</ul>
+<p>While <em>Broad integration tests</em> are still focused on the integration
+between two components, they require a fair amount of work to set up,
+and is at a higher level of complexity than <em>Narrow integration tests</em>
+in terms of setup, because they require that components really talk to
+each other, with the real versions of those services.</p>
+<p>Besides that, the scope is bigger than with <em>Narrow integration
+tests</em>, because <em>Broad integration tests</em> do not focus on the parts of
+the code that interacts with other services, but more complete code paths.</p>
+<h1><a class="header" href="#functional-tests" id="functional-tests">Functional tests</a></h1>
+<p><em>Functional tests</em> are a step further than <em>Narrow integration tests</em>
+and <em>Broad integration tests</em>.</p>
+<p><em>Functional tests</em> require real services to be set up, as happens with
+<em>Broad integration tests</em>, but their focus is on the business
+requirements of the application, unlike <em>Broad integration tests</em>,
+that are focused on the correct implementation of several code paths
+involving several services.</p>
+<h1><a class="header" href="#end-to-end-tests" id="end-to-end-tests">End to end tests</a></h1>
+<p><em>End to end</em> tests main focus is to replicate the user behavior given
+a complete system running of our application.</p>
+<p>They usually focus on <em>user stories</em> to ensure that functionalities
+expected by our customers or users work as expected, and they cannot
+get into any details of the system internally: they only can interact
+with the system as a user would do.</p>
+<h1><a class="header" href="#acceptance-tests" id="acceptance-tests">Acceptance tests</a></h1>
+<p>The main goal of acceptance tests is to ensure that a given system,
+with all its components and services running meet whatever constraints
+were set. It's a contract.</p>
+<p>These tests usually focus on business requirements but their goal is
+to determine if an evolution of our application still honors the
+contract, and so it can be accepted.</p>
+<p>These tests might include very different checks, but to name a few:</p>
+<ul>
+<li>
+<p>A certain user flow is met as desired.</p>
+</li>
+<li>
+<p>The system meets given performance thresholds on the whole system or
+on certain subsytems.</p>
+</li>
+<li>
+<p>The system meets certain security requirements.</p>
+</li>
+</ul>
+<p>These are some examples, but anything from a high perspective can be
+added to this contract.</p>
+<h1><a class="header" href="#performance-tests" id="performance-tests">Performance tests</a></h1>
+<p><em>Performance tests</em> ensure from a technical point of view that certain
+services, components or flows in our system have not been degraded by
+recent evolutions of the software.</p>
+<p>In case that the performance was degraded by a recent change in our
+system, they can be used to pin point the change or set of changes
+that incurred in this penalty.</p>
+<h1><a class="header" href="#smoke-tests" id="smoke-tests">Smoke tests</a></h1>
+<h1><a class="header" href="#build-artifacts" id="build-artifacts">Build artifacts</a></h1>
+<p><em>Build artifacts</em> are the result of running a pipeline in our Continuous
+Integration system.</p>
+<p>We can register as many build artifacts as desired, so we can watch
+them along with our results in our CI system.</p>
+<p>However, when talking about container based microservices, it's very
+common to build a container image at the beginning of the pipeline,
+and use this artifact to perform a certain set of tests.</p>
+<center>
+<p><img src="continuous-integration/../mdbook-plantuml-img/8bf39300-3712-475f-a00a-a292c8306b1f.svg" alt="../mdbook-plantuml-img/8bf39300-3712-475f-a00a-a292c8306b1f.svg" /></p>
+</center>
+<p>Pushing container images to a container registry does not mean
+anything about <strong>delivery</strong> though, aside from the fact that those new
+container images are sitting on our container image registry.</p>
+<h1><a class="header" href="#container-image-registry" id="container-image-registry">Container image registry</a></h1>
+<p>Once that all our tests have passed, our <em>Continuous integration</em>
+pipeline can push a new version of our container image to our
+registry. Ideally, these container images should have a univocally
+determined tag that can help us understand what exact version of the
+container image is running on all our services.</p>
+<p>For example, it's not a good practice to once all our tests have
+passed, push a container image with a <code>latest</code> tag to our registry and
+use it on our deployment manifests. We will have poor control over
+what exact version of the container image is running at a given time.</p>
+<p>We can leverage a hosted third party container image repository, such
+as the <a href="https://hub.docker.com/">Docker Hub</a>, or
+<a href="https://quay.io">quay.io</a> -- along with many others, however, for
+greater control, it's better if we own our container image registry
+(or even several instances, for example for different environments or
+groups within our organization).</p>
+<p>Several options exist for in-premises container image registry:</p>
+<ul>
+<li><a href="https://docs.docker.com/registry/">Docker registry</a></li>
+<li><a href="https://github.com/quay/quay">quay</a></li>
+</ul>
+<p>Ideally, you can even deploy these registries inside your Kubernetes
+clusters.</p>
+<h1><a class="header" href="#continuous-delivery" id="continuous-delivery">Continuous Delivery</a></h1>
+<p><em>Continuous Delivery</em> as described in <a href="https://continuousdelivery.com/">continuousdelivery.com</a>:</p>
+<blockquote>
+<p>Continuous Delivery is the ability to get changes of all
+types—including new features, configuration changes, bug fixes and
+experiments—into production, or into the hands of users, safely and
+quickly in a sustainable way.</p>
+<p>Our goal is to make deployments—whether of a large-scale distributed
+system, a complex production environment, an embedded system, or an
+app—predictable, routine affairs that can be performed on demand.</p>
+<p>We achieve all this by ensuring our code is always in a deployable
+state, even in the face of teams of thousands of developers making
+changes on a daily basis. We thus completely eliminate the
+integration, testing and hardening phases that traditionally
+followed “dev complete”, as well as code freezes.</p>
+</blockquote>
+<p>As you can imagine, it is very tied to <em>Continuous Integration</em>, and a
+good <em>Continuous Integration</em> implementation greatly empowers
+<em>Continuous Delivery</em>.</p>
+<p>The idea that we can deliver new iterations of software at a very good
+pace and frequently improves the confidence on the system.</p>
+<p><em>Continuous Delivery</em> is not strictly tied to <strong>automated
+deliveries</strong>, but it can be implemented as such, where no human is
+required to press any button in order to deploy a new iteration of our
+system.</p>
+<h1><a class="header" href="#ci-driven" id="ci-driven">CI driven</a></h1>
+<p>As we have discussed previously, we have now two levels of composition
+when deploying our application:</p>
+<ul>
+<li>
+<p>A set of container images, representing all our services, that
+ultimately together comprise our application.</p>
+</li>
+<li>
+<p>The configuration needed to deploy them inside a Kubernetes cluster.</p>
+</li>
+</ul>
+<p>Both are very tied, and while we are now in a much better position,
+being able to replicate all our services along with the configuration,
+there is still room for failure.</p>
+<p>Our development cycle could involve several steps, let's imagine the
+following:</p>
+<ul>
+<li>Build and push a new version of a given service, as a container
+image into our container image registry -- for this to happen, all
+our tests should have passed.</li>
+</ul>
+<p>This leaves the open question: who or what updates the deployment
+manifests and all the configuration that goes along with it? When is
+this done?</p>
+<p>We could argue that all changes, both to the service and the
+deployment manifests are done together, and so if they passed, it
+should be safe to redeploy with the deployment manifests that were
+merged.</p>
+<p>However, it's not as simple as it looks.</p>
+<p>Again, there is friction when it comes to certain deployment objects:</p>
+<ul>
+<li>
+<p>Secrets that should only be in production, never sitting on a
+developers machine.</p>
+</li>
+<li>
+<p>Persistent volumes that access datastores that are only used in
+production, and that the <em>Continuous Integration</em> should never have
+access to.</p>
+</li>
+<li>
+<p>Access to third party services that require production secrets and
+that we don't want near our <em>Continuous Integration</em> pipeline, not
+even pointing to the production endpoints.</p>
+</li>
+</ul>
+<p>And so, we can see that there is still room for differences between
+what our CI pipeline has tested, and what will actually run in
+production. Again, room for failure.</p>
+<p>Also, when we are submitting a change to our application, provided
+that deployment manifests are alongside it, what tag should we place
+in the manifest, so our latest version of the service is deployed in
+the test pipeline? This can be overcomed with CI specific logic, but
+is worth noting.</p>
+<p><em>Continuous Integration</em> systems are not meant to deploy and observe
+the application after it has been deployed, this is why we need
+something else to perform <em>Continuous Delivery</em> in a safer way.</p>
+<p>It is a great tool to perform all kinds of tests on the evolution of
+our application, and push some artifacts that can later be used to
+perform the real delivery of our application.</p>
+<h1><a class="header" href="#gitops" id="gitops">GitOps</a></h1>
+<p>As we have seen, our <em>Continous Integration</em> pipelines are not the
+best place to perform a rollout of our application.</p>
+<p><em>GitOps</em> is a term <a href="https://www.weave.works/technologies/gitops/">coined by
+WeaveWorks</a>, so let's
+see what is their definition:</p>
+<blockquote>
+<p>GitOps is a way to do Kubernetes cluster management and application
+delivery.  It works by using Git as a single source of truth for
+declarative infrastructure and applications. With Git at the center
+of your delivery pipelines, developers can make pull requests to
+accelerate and simplify application deployments and operations tasks
+to Kubernetes.</p>
+</blockquote>
+<p>Let's list the principles they name:</p>
+<ol>
+<li>The entire system described declaratively</li>
+<li>The canonical desired system state versioned in Git</li>
+<li>Approved changes can be automatically applied to the system</li>
+<li>Software agents to ensure correctness and alert on divergence</li>
+</ol>
+<p>While we are very used to 1-3, 4 is something that sounds new. Let's
+see that one more in detail:</p>
+<blockquote>
+<p>Once the state of your system is declared and kept under version
+control, software agents can inform you whenever reality doesn’t
+match your expectations.  The use of agents also ensures that your
+entire system is self-healing. And by self-healing, we don’t just
+mean when nodes or pods fail—those are handled by Kubernetes—but in
+a broader sense, like in the case of human error.  In this case,
+software agents act as the feedback and control loop for your
+operations.</p>
+</blockquote>
+<p>Now, this is what feels different as a Continuous Delivery
+procedure. Let's replicate the workflow they claim:</p>
+<ol>
+<li>A pull request for a new feature is pushed to GitHub for review.</li>
+<li>The code is reviewed and approved by a colleague. After the code is
+revised, and re-approved it is merged to Git.</li>
+<li>The Git merge triggers the CI and build pipeline, runs a series of
+tests and then eventually builds a new image and deposits to the
+new image to a registry.</li>
+<li>The Weave Cloud ‘Deployment Automator’ watches the image registry,
+notices the image, pulls the new image from the registry and
+updates its YAML in the config repo.</li>
+<li>The Weave Cloud ‘Deployment Synchronizer’ (installed to the
+cluster), detects that the cluster is out of date. It pulls the
+changed manifests from the config repo and deploys the new feature
+to production.</li>
+</ol>
+<p>And an obligatory diagram:</p>
+<center>
+<table>
+<tr>
+<td>
+<p><img src="https://images.contentstack.io/v3/assets/blt300387d93dabf50e/blt15812c9fe056ba3b/5ce4448f32fd88a3767ee9a3/download" alt="GitOps" /></p>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<p><a href="https://www.weave.works/technologies/gitops/">Image credit</a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>And how a GitOps pipeline would look like:</p>
+<center>
+<table>
+<tr>
+<td>
+<p><img src="https://lh3.googleusercontent.com/37dEz1igq1oGbm80e1HPSfKvH4macg4r0Ft21wH56tCJ7bClqgBm_kpD6NtNWlRs3V-gShPJbbIeeg5Ml07s8mZJ-xiXDwLWCpOU4AufXyPXfyCt-Hj98za68p41Q-jc0Yqk9usd" alt="GitOps Pipeline" /></p>
+</td>
+</tr>
+<tr>
+<td>
+<center>
+<p><a href="https://www.weave.works/technologies/gitops/">Image credit</a></p>
+</center>
+</td>
+</tr>
+</table>
+</center>
+<p>It's very clear now that we have now a set of explicit components
+<strong>driving</strong> the rollout phase. It is the responsibility of this
+component to ensure that the deployment is driven to success, and
+alert otherwise.</p>
+<p>Solutions like <a href="https://argoproj.github.io/argo-cd/">Argo CD</a> allow
+for an implementation of <em>Continuous Delivery</em> pipelines as well.</p>
+<h1><a class="header" href="#observability" id="observability">Observability</a></h1>
+<p>Moving to microservices have some advantages under certain
+circumstances. Different teams within an organization are free to
+build and run them, owning them from beginning to end.</p>
+<p>Observing a monolith and ensuring that it's working as expected is
+relatively easy -- as opposed to a constellation of
+microservices. With a monolith we have greater control of what is
+happening at any given time on the whole system, while losing
+development agility; with microservices now the challenge is how to
+understand the whole picture, and how a service can affect others when
+it's not behaving as expected.</p>
+<p>However, while the microservices themselves have a lower complexity
+code-wise when looked at them independently, the challenge is now to
+<strong>observe</strong> the whole system, and that all components are working as
+expected, being able to detect anomalies as fast as possible. We have
+many moving targets.</p>
+<p><em>Observability</em> usually refers to the combination of the following
+practices:</p>
+<ul>
+<li>
+<p><em>Monitoring</em>: we need to monitor all microservices, ensuring that
+they are running as expected with the resources that they are
+supposed to use. A bad deployed service could be restarting under
+certain code paths, <em>monitoring</em> allows us to better understand when
+is this happening.</p>
+</li>
+<li>
+<p><em>Logging</em>: since we have now a number of microservices, each one
+logging on its own, we need to perform <em>logging aggregation</em>, what
+allows us to send all logs from all services to a central logging
+service, that helps us isolate logs from different services at a
+given time window.</p>
+</li>
+<li>
+<p><em>Tracing</em>: now a request on a service can end up spawning a complex
+tree of requests between different services. By <em>tracing</em> these
+requests we can better understand what requests led to anothers, and
+what was the relationship between them.</p>
+</li>
+<li>
+<p><em>Metrics</em>: a microservice can expose metrics, so an external
+orchestrator is able to know if it needs to scale in or out a given
+microservice based on the demand.</p>
+</li>
+</ul>
+<p>Also, we have to monitor both the infrastructure (the Kubernetes
+cluster healthiness), as well as our applications running on top of it.</p>
+<h1><a class="header" href="#monitoring" id="monitoring">Monitoring</a></h1>
+<p>Monitoring applies both to the infrastructure and the applications
+running on top of it.</p>
+<p>Usually, we can leverage the same tools to monitor both levels.</p>
+<p><a href="https://prometheus.io/">Prometheus</a> and
+<a href="https://grafana.com/">Grafana</a> are the ubiquitous solutions to
+provide this desired level of monitoring.</p>
+<p><em>Prometheus</em> is a time-series database used to store all the
+monitoring information for all our cluster components. It ships with a
+powerful query language to retrieve information.</p>
+<p><em>Grafana</em> is the dashboard that leverages the <em>Prometheus</em> query
+language in order to show it in a graphical and more understandable
+way. It is highly configurable, so you can organize dashboards at will.</p>
+<p>At the infrastructure level, we can find the <a href="https://kubernetes.io/docs/tasks/debug-application-cluster/monitor-node-health/"><em>Node problem
+detector</em></a>,
+that runs in form of a <em>DaemonSet</em>, reporting to the <em>Node</em> object in
+the API Server node conditions and events.</p>
+<h1><a class="header" href="#logging" id="logging">Logging</a></h1>
+<h1><a class="header" href="#tracing" id="tracing">Tracing</a></h1>
+<h1><a class="header" href="#metrics" id="metrics">Metrics</a></h1>
+<h2><a class="header" href="#resource-metrics" id="resource-metrics">Resource metrics</a></h2>
+<p>The resource metrics pipeline allows components like the <em>Horizontal
+Pod Autoscaler</em> to take decisions on a small set of metrics; these
+metrics are collected by an in-memory
+<a href="https://github.com/kubernetes-sigs/metrics-server">metrics-server</a>. The
+<em>Kubelets</em> are the ones providing the information on pod resource
+usage, and uses <a href="https://github.com/google/cadvisor"><code>cAdvisor</code></a> to
+collect this information.</p>
+<h2><a class="header" href="#full-metrics" id="full-metrics">Full metrics</a></h2>
+<h1><a class="header" href="#patterns" id="patterns">Patterns</a></h1>
+<h1><a class="header" href="#api-gateway" id="api-gateway">API Gateway</a></h1>
+<h1><a class="header" href="#service-mesh" id="service-mesh">Service Mesh</a></h1>
+<h1><a class="header" href="#security" id="security">Security</a></h1>
+<h1><a class="header" href="#rbac" id="rbac">RBAC</a></h1>
+<h1><a class="header" href="#container-runtime" id="container-runtime">Container runtime</a></h1>
+<h1><a class="header" href="#network-isolation" id="network-isolation">Network isolation</a></h1>
+<h1><a class="header" href="#container-image-scanners" id="container-image-scanners">Container image scanners</a></h1>
+<h1><a class="header" href="#api-server-audit" id="api-server-audit">API Server Audit</a></h1>
+<h1><a class="header" href="#debugging" id="debugging">Debugging</a></h1>
+<h1><a class="header" href="#advanced-concepts" id="advanced-concepts">Advanced Concepts</a></h1>
+<h1><a class="header" href="#virtual-kubelet" id="virtual-kubelet">Virtual Kubelet</a></h1>
+<h1><a class="header" href="#deprecation-policy" id="deprecation-policy">Deprecation Policy</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                        
+
+                        
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                
+
+                
+            </nav>
+
+        </div>
+
+        
+
+        
+
+        
+        
+        
+        <script type="text/javascript">
+            window.playpen_copyable = true;
+        </script>
+        
+
+        
+
+        
+        <script src="elasticlunr.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="mark.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="searcher.js" type="text/javascript" charset="utf-8"></script>
+        
+
+        <script src="clipboard.min.js" type="text/javascript" charset="utf-8"></script>
+        <script src="highlight.js" type="text/javascript" charset="utf-8"></script>
+        <script src="book.js" type="text/javascript" charset="utf-8"></script>
+
+        <!-- Custom JS scripts -->
+        
+
+        
+        
+        <script type="text/javascript">
+        window.addEventListener('load', function() {
+            window.setTimeout(window.print, 100);
+        });
+        </script>
+        
+        
+
+    </body>
+</html>
