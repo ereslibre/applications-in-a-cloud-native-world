@@ -1,10 +1,9 @@
 # Service Oriented Architecture
 
 
-As we have defined a *microservice*, now we have one building block
-for a *Service Oriented Architecture* (or *SOA*). Note that a *SOA*
-does not *imply* microservices. A *SOA* merely means, according to
-[Wikipedia](https://en.wikipedia.org/wiki/Service-oriented_architecture):
+According to
+[Wikipedia](https://en.wikipedia.org/wiki/Service-oriented_architecture),
+*Service Oriented Architecture*, or *SOA* definition is:
 
 > *Service-oriented architecture* (SOA) is a style of software design
 > where services are provided to the other components by application
@@ -21,10 +20,7 @@ we can point some traits of Service Oriented Architectures:
 * **Flexibility** over optimization
 * **Evolutionary refinement** over pursuit of initial perfection
 
-However, a *SOA* in itself does not recommend any specific split of
-services, neither it includes microservices as part of its
-definition.
-
-We can say then, that *microservices* are a possible implementation of
-a *SOA*, just like *Event driven architectures* are another way of
-implementing them.
+This is a new approach as opposed to internally splitting our
+application in modules to define boundaries. With a *SOA*, we will
+have a set of services that can talk to each other over the network,
+and so their API will be some form of HTTP or RPC API.

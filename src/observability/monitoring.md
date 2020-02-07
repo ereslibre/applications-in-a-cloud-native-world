@@ -8,5 +8,3 @@ Usually, we can leverage the same tools to monitor both levels.
 [Prometheus](https://prometheus.io/) and
 [Grafana](https://grafana.com/) are the ubiquitous solutions to
 provide this desired level of monitoring.
-
-At the infrastructure level

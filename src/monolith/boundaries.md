@@ -29,12 +29,13 @@ implementation detail isolation, where every module will only export
 interfaces, meant to be consumed by other modules of the same
 system. This is what the contract would be in this case.
 
-API and ABI stability in this context is what matters the most for
-other modules that are consuming a certain module. There are many
-examples of this, but some would be the Qt Framework, Glib, Gtk, or
-any library that we can consume.
+A monolithic application can be broken down in different modules, that
+can reside inside of the same binary, or in shared libraries. A
+monolithic application can also consume third party shared libraries
+by being linked against them. This conforms a pattern on boundary
+separation and code reusability.
 
-Our application can be split in the same way, so different modules
-that compose our application talk to one another using these
-interfaces. However, this does not necessarily imply that different
-modules will use different data or persistency accesses.
+API and ABI stability in this context is what matters the most for
+other modules that are consuming a certain module from third party
+libraries. There are many examples of this, but some would be the Qt
+Framework, Glib or Gtk.
